@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Sari Sari Store - ₱1Solution Campaign</title>
+<style>
+  *{margin:0;
+    padding:0;
+    box-sizing:border-box;}
+
+  body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background:#f4f7fa;
+    color:#333;
+    line-height:1.6;
+  }
+
+  header{
+    background:#fff;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+    position:sticky;
+    top:0;
+    z-index:100;
+  }
+  .header-content{
+    max-width:1800px;
+    margin:auto;
+    padding:15px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  nav ul{display:flex;
+    gap:20px;
+    list-style:none;
+  }
+
+  nav a{
+    text-decoration:none;
+    color:#555;
+    font-weight:500;
+    cursor:pointer;
+  }
+
+  nav a:hover{color:#2c5aa0;}
+  .logo img{
+    width:180px;
+    cursor:pointer;
+  }
+
+  .layout{
+    max-width:1800px;
+    margin:30px auto;
+    display:flex;
+    gap:30px;
+  }
+
+  .left-column{flex:2;}
+
+  .right-column{
+    flex:1;
+    background:#fff;
+    padding:20px;
+    border-radius:8px;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+    height:fit-content;
+  }
+
+  .campaign-img{
+    width:100%;
+    border-radius:8px;
+    margin-bottom:15px;
+    object-fit:cover;
+    object-position:center;
+    height:300px;
+  }
+
+  .campaign-title{
+    text-align:center;
+    color:#2c5aa0;
+    margin-bottom:10px;
+    font-size:2em;
+  }
+
+  .progress-box{
+    margin:10px 0;
+    padding:10px;
+    background:#f4f7fa;
+    border-radius:6px;
+  }
+
+  .progress-bar{
+    background:#ddd;
+    height:10px;
+    border-radius:4px;
+    overflow:hidden;
+  }
+
+  .progress-fill{
+    background:#4a90e2;
+    height:100%;
+  }
+
+  /* Coin donate button - No automatic animation */
+  .coin-btn{
+    width:110px;
+    height:110px;
+    background:url('Images/piso.jfif');
+    background-size:cover;
+    background-position:center;
+    border:none;
+    cursor:pointer;
+    margin:auto;
+    display:block;
+    /* Hover effect */
+    transition:transform .2s;
+  }
+  .coin-btn:hover{
+    transform:scale(1.1);
+  }
+
+  /* Falling animation class - Applied on click */
+  .coin-falling {
+    animation: coinFall 1.5s ease-out;
+  }
+
+  /* Keyframes for falling animation - Starts from original position */
+  @keyframes coinFall {
+    0% {
+      transform: translateY(0); /* Start at original position */
+      opacity: 1; /* Fully visible */
+    }
+    100% {
+      transform: translateY(200px); /* Fall down 200px */
+      opacity: 0; /* Fade out as it falls */
+    }
+  }
+
+  .creator-box {
+  background: #ffffff;
+  border: 3px solid #2c5aa0;       /* THICK BORDER so you SEE separation */
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 30px;
+
+  /* This forces spacing even inside flex layouts */
+  display: block !important;
+  width: 100% !important;
+
+  /* Forces visible separation */
+  box-shadow: 0 0 15px rgba(0,0,0,0.15);
+  }
+
+  .creator-box-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .creator-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid #2c5aa0;
+    object-fit: cover;
+  }
+
+
+
+
+  .story-box{
+    background:#fff;
+    padding:20px;
+    border-radius:8px;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+    margin-bottom:20px;
+  }
+
+  .donation-list{margin-top:15px;}
+  .donation-entry{
+    background:#fff;padding:10px;
+    border-radius:5px;
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:10px;
+    box-shadow:0 1px 4px rgba(0,0,0,.05);
+  }
+
+  footer{
+    margin-top:50px;
+    background:#2c5aa0;
+    color:#fff;
+    text-align:center;
+    padding:20px;
+  }
+
+  .modal{
+    display:none;
+    position:fixed;
+    left:0;top:0;
+    width:100%;
+    height:100%;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,.5);
+    z-index:999;
+  }
+
+  .modal-content{
+    max-width:400px;
+    width:90%;
+    position:relative;
+  }
+
+  .close{position:absolute;
+    right:15px;top:10px;
+    font-size:24px;
+    cursor:pointer;
+  }
+
+  .tab-buttons{
+    display:flex;
+    margin-bottom:20px;
+  }
+
+  .tab-btn{
+    flex:1;
+    padding:10px;
+    border:none;
+    background:#eee;
+    font-weight:bold;
+    cursor:pointer;
+  }
+
+  .tab-btn.active{
+    background:#2c5aa0;
+    color:#fff;}
+  .tab-content{
+    display:none;
+  }
+  .tab-content.active{display:block;}
+  .form-group{margin-bottom:15px;}
+  .form-group input{
+    width:100%;
+    padding:10px;
+    border:1px solid:#ddd;
+    border-radius:4px;
+  }
+
+  .modal-btn{
+    width:100%;
+    padding:12px;
+    background:#2c5aa0;
+    color:#fff;
+    border:none;
+    border-radius:4px;
+    font-weight:bold;
+    margin-top:10px;
+    cursor:pointer;
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: -350px;
+    width: 300px;
+    height: 100%;
+    background: #fff;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+    padding: 20px;
+    transition: right 0.3s;
+    z-index: 2000;
+  }
+  .sidebar.open {right: 0;}
+  .close-sidebar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size:24px;
+    cursor:pointer;
+  }
+
+  @media(max-width:900px){
+    .layout{flex-direction:column;}
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class='header-content'>
+    <div class='logo'><img src='Images/logo.jfif' id='logo-click'></div>
+    <nav>
+      <ul>
+        <li><a id='home-link'>Home</a></li>
+        <li><a id='browse-link'>Browse Campaigns</a></li>
+        <li><a id='auth-link'>Login / Register</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class='layout'>
+  <div class='left-column'>
+    <img src='Images/sari-sari.jpg' class='campaign-img'>
+
+    <div class='story-box'>
+      <h2>Story</h2>
+      <p>
+      In a remote rural area where families live in scattered huts and the nearest big market is a long, bumpy ride away, getting everyday items like rice, soap, or medicine is a big problem.
+      <br>
+       People often go without fresh food, buy spoiled goods from dusty stalls, or spend hours traveling, leaving kids hungry and elders sick. 
+       <br>
+       A modernized sari-sari store is needed here because it brings clean shelves, fridges for cold drinks, and quick online orders for fresh supplies right to the spot. 
+       <br>
+       This way, moms can grab milk for babies without worry, workers buy snacks on the way home, and the whole community saves time and money, staying healthier and happier. 
+       <br>
+       Without such a store, the area stays stuck in hardship, but with it, life gets easier.
+      </p>
+    </div>
+  </div>
+
+  <div class='right-column'>
+    <h2 class='campaign-title'>Sari-Sari Store</h2>
+    <div class='progress-box'>
+      <strong id='raised-label'>₱2863 raised of 10000 goal</strong>
+      <div class='progress-bar'>
+        <div class='progress-fill' id='fill'></div>
+      </div>
+    </div>
+
+    <button id='donate-btn' class='coin-btn'></button>
+
+    <div class='donation-list' id='donation-list'>
+      <h3 style='margin-top:15px;color:#2c5aa0;'>Recent Donators</h3>
+      <div class='donation-entry'><span>Mark</span><span>₱1</span></div>
+      <div class='donation-entry'><span>Ana</span><span>₱5</span></div>
+      <div class='donation-entry'><span>Carlo</span><span>₱2</span></div>
+    </div>
+
+    <div class="author-box">
+  <div class="creator-box">
+  <h3>Campaign Creator</h3>
+
+  <div class="creator-box-content">
+    <img src="profile.jpg" class="creator-photo">
+    <div>
+      <p><strong>Name:</strong> Juan Dela Cruz</p>
+      <p><strong>Email:</strong> juan@example.com</p>
+      <p><strong>About:</strong> Sari-Sari Store.</p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+  </div>
+</div>
+
+<footer>
+  ₱1Solution • All Rights Reserved.
+</footer>
+
+<!-- Modal -->
+<div id='auth-modal' class='modal'>
+  <div class='modal-content'>
+    <span class='close'>&times;</span>
+    <div class='tab-buttons'>
+      <button class='tab-btn active' onclick='showTab("login")'>Login</button>
+      <button class='tab-btn' onclick='showTab("register")'>Register</button>
+    </div>
+    <div id='login' class='tab-content active'>
+      <div class='form-group'><input type='email' id='login-email' placeholder='Email'></div>
+      <div class='form-group'><input type='password' placeholder='Password'></div>
+      <button class='modal-btn' id='login-submit'>Login</button>
+    </div>
+    <div id='register' class='tab-content'>
+      <div class='form-group'><input type='text' id='register-name' placeholder='Full Name'></div>
+      <div class='form-group'><input type='email' id='register-email' placeholder='Email'></div>
+      <div class='form-group'><input type='password' placeholder='Password'></div>
+      <button class='modal-btn' id='register-submit'>Register</button>
+    </div>
+  </div>
+</div>
+
+<!-- SIDEBAR -->
+<div id='account-sidebar' class='sidebar'>
+  <span class='close-sidebar'>&times;</span>
+  <h2>Account Information</h2>
+  <p><strong>Name:</strong> <span id='acc-name'></span></p>
+  <p><strong>Email:</strong> <span id='acc-email'></span></p>
+  <button id='logout-btn' class='modal-btn' style='background:red;'>Logout</button>
+</div>
+
+<script>
+// =====================
+// NAVIGATION
+// =====================
+const authLink = document.getElementById('auth-link');
+const homeLink = document.getElementById('home-link');
+const browseLink = document.getElementById('browse-link');
+const logoClick = document.getElementById('logo-click');
+
+homeLink.onclick = () => { window.location.href = "HOMEPAGE.html"; };
+logoClick.onclick = () => { window.location.href = "HOMEPAGE.html"; };
+browseLink.onclick = () => { window.location.href = "HOMEPAGE.html#featured"; };
+
+// =====================
+// VARIABLES
+// =====================
+let amountRaised = 0;
+
+// Choose a single source of truth for this campaign's goal.
+// The UI shows "of 10000 goal" so use 10000 here.
+let goalAmount = 10000;
+
+// helper key so homepage can look up this campaign's raised value.
+// Use an explicit campaign key to avoid colliding with other campaigns.
+const CAMPAIGN_KEY = "campaign-store_raised";
+
+
+// =====================
+// ELEMENT REFERENCES
+// =====================
+const modal = document.getElementById('auth-modal');
+const donate = document.getElementById('donate-btn');
+const closeBtn = document.querySelector('.close');
+const sidebar = document.getElementById('account-sidebar');
+const accName = document.getElementById('acc-name');
+const accEmail = document.getElementById('acc-email');
+const donationList = document.getElementById("donation-list");
+
+// =====================
+// DONATE BUTTON CLICK
+// =====================
+donate.onclick = (e) => {
+  e.preventDefault();
+
+  if (!localStorage.getItem("userEmail")) {
+    modal.style.display = "flex";
+  } else {
+    const user = localStorage.getItem("userName") || "Anonymous";
+    addDonation(user, 1);
+
+    // Coin animation
+    donate.classList.add('coin-falling');
+    setTimeout(() => donate.classList.remove('coin-falling'), 1500);
+  }
+};
+
+// =====================
+// CLOSE HANDLERS
+// =====================
+closeBtn.onclick = () => modal.style.display = 'none';
+window.onclick = (e) => { if (e.target == modal) modal.style.display = 'none'; };
+
+// =====================
+// LOGIN / REGISTER TABS
+// =====================
+function showTab(name) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(name).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// =====================
+// LOGIN / REGISTER
+// =====================
+function saveUser(name, email) {
+  localStorage.setItem('userName', name);
+  localStorage.setItem('userEmail', email);
+  updateNav();
+}
+
+document.getElementById('login-submit').onclick = () => {
+  saveUser('User', document.getElementById('login-email').value);
+  modal.style.display = 'none';
+};
+
+document.getElementById('register-submit').onclick = () => {
+  saveUser(document.getElementById('register-name').value, document.getElementById('register-email').value);
+  modal.style.display = 'none';
+};
+
+// =====================
+// SIDEBAR ACCOUNT
+// =====================
+authLink.onclick = (e) => {
+  e.preventDefault();
+  if (localStorage.getItem('userEmail')) {
+    accName.textContent = localStorage.getItem('userName');
+    accEmail.textContent = localStorage.getItem('userEmail');
+    sidebar.classList.add('open');
+  } else {
+    modal.style.display = "flex";
+  }
+};
+
+document.querySelector('.close-sidebar').onclick = () => sidebar.classList.remove('open');
+
+document.getElementById('logout-btn').onclick = () => {
+  localStorage.clear();
+  sidebar.classList.remove('open');
+  updateNav();
+};
+
+// =====================
+// NAV UPDATE
+// =====================
+function updateNav() {
+  if (localStorage.getItem('userEmail')) authLink.textContent = "My Account";
+  else authLink.textContent = "Login / Register";
+}
+updateNav();
+
+// =====================
+// DONATION SYSTEM
+// =====================
+function addDonation(name, amount) {
+  let donations = JSON.parse(localStorage.getItem("donations")) || {};
+
+  donations[name] = (donations[name] || 0) + amount;
+
+  localStorage.setItem("donations", JSON.stringify(donations));
+
+  amountRaised = Object.values(donations).reduce((a, b) => a + b, 0);
+
+  renderDonations(donations);
+  updateGoal();
+
+  // persist the campaign-specific raised amount so the homepage can read it
+  localStorage.setItem(CAMPAIGN_KEY, String(amountRaised));
+}
+
+
+function renderDonations(donations) {
+  donationList.innerHTML = `
+    <h3 style='margin-top:15px;color:#2c5aa0;'>Recent Donators</h3>
+  `;
+  for (let [name, amount] of Object.entries(donations)) {
+    const div = document.createElement("div");
+    div.className = "donation-entry";
+    div.innerHTML = `<span>${name}</span><span>₱${amount}</span>`;
+    donationList.append(div);
+  }
+}
+
+// =====================
+// PROGRESS BAR
+// =====================
+function updateGoal() {
+  document.getElementById("raised-label").textContent = `₱${amountRaised} raised of ₱${goalAmount} goal`;
+  document.getElementById("fill").style.width = (amountRaised / goalAmount) * 100 + '%';
+}
+
+// =====================
+// ON PAGE LOAD
+// =====================
+window.onload = () => {
+  let saved = JSON.parse(localStorage.getItem("donations"));
+
+  // ✅ Check if donations are empty or not set
+  if (!saved || Object.keys(saved).length === 0) {
+    const filler = {
+      "Vhener": 5,
+      "Jedidiah": 10,
+      "Iziah": 25
+    };
+
+    // Save filler donors to localStorage (so they stay)
+    localStorage.setItem("donations", JSON.stringify(filler));
+    saved = filler;
+  }
+
+  renderDonations(saved);
+  amountRaised = Object.values(saved).reduce((a, b) => a + b, 0);
+  updateGoal();
+
+  localStorage.setItem(CAMPAIGN_KEY, String(amountRaised));
+};
+  function addDonation(name, amount) {
+    let donations = JSON.parse(localStorage.getItem("donations")) || {};
+
+    donations[name] = (donations[name] || 0) + amount;
+
+    localStorage.setItem("donations", JSON.stringify(donations));
+
+    amountRaised = Object.values(donations).reduce((a, b) => a + b, 0);
+
+    renderDonations(donations);
+    updateGoal();
+
+    // SAVE to localStorage so other pages (homepage) can read it
+    localStorage.setItem('campaign-store_raised', String(amountRaised));
+    localStorage.setItem('campaign1-store', String(goalAmount));
+  }
+
+  function updateGoal() {
+    document.getElementById("raised-label").textContent = `₱${amountRaised} raised of ₱${goalAmount} goal`;
+    document.getElementById("fill").style.width = (amountRaised / goalAmount) * 100 + '%';
+
+    // Keep these in sync too (in case updateGoal is called directly)
+    localStorage.setItem('campaign-store_raised', String(amountRaised));
+    localStorage.setItem('campaign-store_goal', String(goalAmount));
+  }
+
+  window.onload = () => {
+    let saved = JSON.parse(localStorage.getItem("donations"));
+
+    if (!saved || Object.keys(saved).length === 0) {
+      const filler = {
+        "Vhener": 5,
+        "Jedidiah": 10,
+        "Iziah": 25
+      };
+
+      localStorage.setItem("donations", JSON.stringify(filler));
+      saved = filler;
+    }
+
+    renderDonations(saved);
+    amountRaised = Object.values(saved).reduce((a, b) => a + b, 0);
+    updateGoal();
+
+    // Ensure homepage can read the initial values
+    localStorage.setItem('campaign-store_raised', String(amountRaised));
+    localStorage.setItem('campaign-store_goal', String(goalAmount));
+  };
+</script>
+
+</body>
+</html>
