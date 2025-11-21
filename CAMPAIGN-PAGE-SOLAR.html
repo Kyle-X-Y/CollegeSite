@@ -488,6 +488,18 @@ window.onload = () => {
   localStorage.setItem('campaign-solar_raised', String(amountRaised));
   localStorage.setItem('campaign-solar_goal', String(goalAmount));
 };
+
+</body>
+</html>
+// ensure campaign goal is persisted for homepage progress sync
+<script>
+  try {
+    window.addEventListener('load', function() {
+      if (typeof CAMPAIGN_KEY !== 'undefined' && typeof goalAmount !== 'undefined') {
+        try { localStorage.setItem(CAMPAIGN_KEY.replace('_raised','_goal'), String(goalAmount)); } catch (e) {}
+      }
+    });
+  } catch (e) { }
 </script>
 
 </body>

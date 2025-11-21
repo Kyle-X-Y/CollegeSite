@@ -211,10 +211,6 @@
     max-width:400px;
     width:90%;
     position:relative;
-    background: #fff;
-    border-radius: 8px;
-    padding: 18px;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.2);
   }
 
   .close{position:absolute;
@@ -248,8 +244,8 @@
   .form-group input{
     width:100%;
     padding:10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    border:1px solid:#ddd;
+    border-radius:4px;
   }
 
   .modal-btn{
@@ -296,9 +292,7 @@
 
 <header>
   <div class='header-content'>
-    <a href="HOMEPAGE.html" class="logo-link">
-      <div class='logo'><img src='Images/logo.jfif' id='logo-click'></div>
-    </a>
+    <div class='logo'><img src='Images/logo.jfif' id='logo-click'></div>
     <nav>
       <ul>
         <li><a id='home-link'>Home</a></li>
@@ -316,7 +310,7 @@
     <div class='story-box'>
       <h2>Story</h2>
       <p>
-            Laundryan
+            In a busy area, people washed clothes with strong chemicals that hurt the earth and polluted rivers.
             <br>
             An eco-friendly laundry shop opened, using machines with natural soaps that save water and don't pollute.
             <br>
@@ -376,8 +370,8 @@
   <div class='modal-content'>
     <span class='close'>&times;</span>
     <div class='tab-buttons'>
-      <button class='tab-btn active' onclick='showTab("login", this)'>Login</button>
-      <button class='tab-btn' onclick='showTab("register", this)'>Register</button>
+      <button class='tab-btn active' onclick='showTab("login")'>Login</button>
+      <button class='tab-btn' onclick='showTab("register")'>Register</button>
     </div>
     <div id='login' class='tab-content active'>
       <div class='form-group'><input type='email' id='login-email' placeholder='Email'></div>
