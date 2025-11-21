@@ -194,6 +194,21 @@
     max-width:400px;
     width:90%;
     position:relative;
+    background: #fff;
+    border-radius: 8px;
+    padding: 18px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+  }
+  .modal-btn{
+    width:100%;
+    padding:12px;
+    background:#2c5aa0;
+    color:#fff;
+    border:none;
+    border-radius:4px;
+    font-weight:bold;
+    margin-top:10px;
+    cursor:pointer;
   }
 
   .close{position:absolute;
@@ -209,10 +224,6 @@
   .tab-content.active{display:block;}
   .form-group{margin-bottom:15px;}
   .form-group input{width:100%;padding:10px;border:1px solid:#ddd;border-radius:4px;}
-
-  .modal-btn{
-    width:100%;padding:12px;background:#2c5aa0;color:#fff;border:none;border-radius:4px;font-weight:bold;margin-top:10px;cursor:pointer;
-  }
 
   .sidebar {
     position: fixed;
@@ -346,7 +357,7 @@
 <script>
 // Consolidated script for Laundry campaign — defensive, single init, per-campaign keys.
 (function(){
-  const campaignID = 'laundry';
+  const campaignID = 'clinic';
   const CAMPAIGN_KEY = `campaign-${campaignID}_raised`;
   const CAMPAIGN_GOAL_KEY = `campaign-${campaignID}_goal`;
 
@@ -486,7 +497,7 @@
   (function init(){
     let saved = JSON.parse(localStorage.getItem('donations'));
     if (!saved || Object.keys(saved).length === 0) {
-      const filler = {"Vhener":5,"Jedidiah":10,"Iziah":25};
+      const filler = {"nevinem":5,"Jedidiah":10,"Iziah":25};
       localStorage.setItem('donations', JSON.stringify(filler));
       saved = filler;
     }
