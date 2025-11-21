@@ -274,13 +274,28 @@
     <div class='story-box'>
       <h2>Story</h2>
       <p>
-      Urban neighborhoods lack green spaces, fresh vegetables, and places for children to play safely. Families often rely on expensive produce from markets far away. 
+      In many urban neighborhoods, families struggle with limited access to fresh produce, rising food prices, and the absence of green spaces where children can safely play. Empty lots sit unused while communities continue to rely on expensive vegetables from faraway markets. Over time, this lack of access affects not just nutrition, but the overall well-being of families who deserve healthier and greener spaces.
       <br><br>
-      This project aims to create a community garden where locals can grow their own vegetables, learn sustainable gardening, and strengthen neighborhood bonds. 
-      <br><br>
-      The garden will provide fresh food, encourage healthy habits, and become a space for education and collaboration among children and adults alike. 
-      <br><br>
-      With your support, this garden can transform an empty lot into a thriving green space for the entire community.
+      This Community Garden Project aims to transform a vacant lot into a thriving green space where residents can grow vegetables, learn sustainable gardening, and come together as a united neighborhood. The garden will give families a reliable source of fresh produce, teach long-term self-sufficiency, and become a peaceful, productive space for both adults and children. Your support helps turn bare soil into opportunity, nourishment, and community pride.
+      </p>
+
+      <h3 style="margin-top:20px;color:#2c5aa0;">What is the campaign about?</h3>
+      <p>
+      The goal is to establish a fully functional community garden where residents can plant, grow, and harvest their own vegetables. It will also host workshops on composting, sustainability, and urban farming.
+      </p>
+
+      <h3 style="margin-top:20px;color:#2c5aa0;">What will you do with the funds? (₱10,000 Budget)</h3>
+      <p>
+        • ₱3,500 — Seeds (tomatoes, eggplants, pechay, okra, herbs)<br>
+        • ₱2,500 — Gardening tools (shovels, gloves, watering cans, rakes)<br>
+        • ₱2,000 — Soil, compost, and fertilizers<br>
+        • ₱1,000 — Wooden planks for plant beds<br>
+        • ₱1,000 — Educational materials for gardening workshops
+      </p>
+
+      <h3 style="margin-top:20px;color:#2c5aa0;">Where will it be located?</h3>
+      <p>
+      The community garden will be developed in an unused lot located in **San Isidro, Nueva Ecija**, open to local families, students, and volunteers.
       </p>
     </div>
   </div>
@@ -357,13 +372,11 @@
 </div>
 
 <script>
-// Consolidated script for Laundry campaign — defensive, single init, per-campaign keys.
   (function(){
     const campaignID = 'baker';
     const CAMPAIGN_KEY = `campaign-${campaignID}_raised`;
     const CAMPAIGN_GOAL_KEY = `campaign-${campaignID}_goal`;
 
-    // NAV
     const authLink = document.getElementById('auth-link');
     const homeLink = document.getElementById('home-link');
     const browseLink = document.getElementById('browse-link');
@@ -373,11 +386,9 @@
     if (logoClick) logoClick.onclick = () => { window.location.href = 'HOMEPAGE.html'; };
     if (browseLink) browseLink.onclick = () => { window.location.href = 'HOMEPAGE.html#featured'; };
 
-    // STATE
     let amountRaised = 3972 ;
     let goalAmount = parseInt(localStorage.getItem(CAMPAIGN_GOAL_KEY)) || 10000;
 
-    // ELEMENTS
     const modal = document.getElementById('auth-modal');
     const donate = document.getElementById('donate-btn');
     const closeBtn = document.querySelector('.close');
@@ -387,7 +398,6 @@
     const donationList = document.getElementById('donation-list');
     const fillEl = document.getElementById('fill');
 
-    // DONATE
     if (donate) {
       donate.addEventListener('click', (e) => {
         e.preventDefault();
@@ -402,11 +412,9 @@
       });
     }
 
-    // CLOSE HANDLERS
     if (closeBtn) closeBtn.addEventListener('click', () => { if (modal) modal.style.display = 'none'; });
     window.addEventListener('click', (e) => { if (e.target === modal && modal) modal.style.display = 'none'; });
 
-    // Tabs
     window.showTab = function(name, btn) {
       document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -415,7 +423,6 @@
       if (btn) btn.classList.add('active');
     };
 
-    // LOGIN / REGISTER
     function saveUser(name, email) {
       localStorage.setItem('userName', name);
       localStorage.setItem('userEmail', email);
@@ -437,7 +444,6 @@
       if (modal) modal.style.display = 'none';
     });
 
-    // SIDEBAR ACCOUNT
     if (authLink) authLink.addEventListener('click', (e) => {
       e.preventDefault();
       if (localStorage.getItem('userEmail')) {
@@ -463,7 +469,6 @@
     }
     updateNav();
 
-    // DONATION SYSTEM
     function renderDonations(donations) {
       if (!donationList) return;
       donationList.innerHTML = `<h3 style='margin-top:15px;color:#2c5aa0;'>Recent Donators</h3>`;
@@ -495,7 +500,6 @@
       localStorage.setItem('progress_' + campaignID, String(amountRaised));
     }
 
-    // INIT
     (function init(){
       let saved = JSON.parse(localStorage.getItem(`donations_${campaignID}`));
       if (!saved || Object.keys(saved).length === 0) {
