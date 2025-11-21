@@ -359,7 +359,7 @@
 <script>
 // Consolidated script for Laundry campaign — defensive, single init, per-campaign keys.
 (function(){
-  const campaignID = 'laundry';
+  const campaignID = 'baker';
   const CAMPAIGN_KEY = `campaign-${campaignID}_raised`;
   const CAMPAIGN_GOAL_KEY = `campaign-${campaignID}_goal`;
 
@@ -476,9 +476,9 @@
   }
 
   function addDonation(name, amount) {
-    let donations = JSON.parse(localStorage.getItem('donations')) || {};
+    let donations = JSON.parse(localStorage.getItem(`donations_${campaignID}`)) || {};
     donations[name] = (donations[name] || 0) + amount;
-    localStorage.setItem('donations', JSON.stringify(donations));
+    localStorage.setItem(`donations_${campaignID}`, JSON.stringify(donations));
     amountRaised = Object.values(donations).reduce((a, b) => a + b, 0);
     renderDonations(donations);
     updateGoal();
@@ -497,10 +497,10 @@
 
   // INIT
   (function init(){
-    let saved = JSON.parse(localStorage.getItem('donations'));
+    let saved = JSON.parse(localStorage.getItem(`donations_${campaignID}`));
     if (!saved || Object.keys(saved).length === 0) {
       const filler = {"Vhener":5,"Jedidiah":10,"Iziah":25};
-      localStorage.setItem('donations', JSON.stringify(filler));
+      localStorage.setItem(`donations_${campaignID}`, JSON.stringify(filler));
       saved = filler;
     }
     renderDonations(saved);

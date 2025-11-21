@@ -393,157 +393,157 @@
 
 <script>
 // Consolidated script for Laundry campaign — defensive, single init, per-campaign keys.
-(function(){
-  const campaignID = 'laundry';
-  const CAMPAIGN_KEY = `campaign-${campaignID}_raised`;
-  const CAMPAIGN_GOAL_KEY = `campaign-${campaignID}_goal`;
+  (function(){
+    const campaignID = 'baker';
+    const CAMPAIGN_KEY = `campaign-${campaignID}_raised`;
+    const CAMPAIGN_GOAL_KEY = `campaign-${campaignID}_goal`;
 
-  // NAV
-  const authLink = document.getElementById('auth-link');
-  const homeLink = document.getElementById('home-link');
-  const browseLink = document.getElementById('browse-link');
-  const logoClick = document.getElementById('logo-click');
+    // NAV
+    const authLink = document.getElementById('auth-link');
+    const homeLink = document.getElementById('home-link');
+    const browseLink = document.getElementById('browse-link');
+    const logoClick = document.getElementById('logo-click');
 
-  if (homeLink) homeLink.onclick = () => { window.location.href = 'HOMEPAGE.html'; };
-  if (logoClick) logoClick.onclick = () => { window.location.href = 'HOMEPAGE.html'; };
-  if (browseLink) browseLink.onclick = () => { window.location.href = 'HOMEPAGE.html#featured'; };
+    if (homeLink) homeLink.onclick = () => { window.location.href = 'HOMEPAGE.html'; };
+    if (logoClick) logoClick.onclick = () => { window.location.href = 'HOMEPAGE.html'; };
+    if (browseLink) browseLink.onclick = () => { window.location.href = 'HOMEPAGE.html#featured'; };
 
-  // STATE
-  let amountRaised = 3972 ;
-  let goalAmount = parseInt(localStorage.getItem(CAMPAIGN_GOAL_KEY)) || 10000;
+    // STATE
+    let amountRaised = 3972 ;
+    let goalAmount = parseInt(localStorage.getItem(CAMPAIGN_GOAL_KEY)) || 10000;
 
-  // ELEMENTS
-  const modal = document.getElementById('auth-modal');
-  const donate = document.getElementById('donate-btn');
-  const closeBtn = document.querySelector('.close');
-  const sidebar = document.getElementById('account-sidebar');
-  const accName = document.getElementById('acc-name');
-  const accEmail = document.getElementById('acc-email');
-  const donationList = document.getElementById('donation-list');
-  const fillEl = document.getElementById('fill');
+    // ELEMENTS
+    const modal = document.getElementById('auth-modal');
+    const donate = document.getElementById('donate-btn');
+    const closeBtn = document.querySelector('.close');
+    const sidebar = document.getElementById('account-sidebar');
+    const accName = document.getElementById('acc-name');
+    const accEmail = document.getElementById('acc-email');
+    const donationList = document.getElementById('donation-list');
+    const fillEl = document.getElementById('fill');
 
-  // DONATE
-  if (donate) {
-    donate.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (!localStorage.getItem('userEmail')) {
-        if (modal) modal.style.display = 'flex';
-        return;
-      }
-      const user = localStorage.getItem('userName') || 'Anonymous';
-      addDonation(user, 1);
-      donate.classList.add('coin-falling');
-      setTimeout(() => donate.classList.remove('coin-falling'), 1500);
+    // DONATE
+    if (donate) {
+      donate.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (!localStorage.getItem('userEmail')) {
+          if (modal) modal.style.display = 'flex';
+          return;
+        }
+        const user = localStorage.getItem('userName') || 'Anonymous';
+        addDonation(user, 1);
+        donate.classList.add('coin-falling');
+        setTimeout(() => donate.classList.remove('coin-falling'), 1500);
+      });
+    }
+
+    // CLOSE HANDLERS
+    if (closeBtn) closeBtn.addEventListener('click', () => { if (modal) modal.style.display = 'none'; });
+    window.addEventListener('click', (e) => { if (e.target === modal && modal) modal.style.display = 'none'; });
+
+    // Tabs
+    window.showTab = function(name, btn) {
+      document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      const tab = document.getElementById(name);
+      if (tab) tab.classList.add('active');
+      if (btn) btn.classList.add('active');
+    };
+
+    // LOGIN / REGISTER
+    function saveUser(name, email) {
+      localStorage.setItem('userName', name);
+      localStorage.setItem('userEmail', email);
+      updateNav();
+    }
+
+    const loginSubmit = document.getElementById('login-submit');
+    if (loginSubmit) loginSubmit.addEventListener('click', () => {
+      const email = document.getElementById('login-email')?.value || '';
+      saveUser('User', email);
+      if (modal) modal.style.display = 'none';
     });
-  }
 
-  // CLOSE HANDLERS
-  if (closeBtn) closeBtn.addEventListener('click', () => { if (modal) modal.style.display = 'none'; });
-  window.addEventListener('click', (e) => { if (e.target === modal && modal) modal.style.display = 'none'; });
+    const registerSubmit = document.getElementById('register-submit');
+    if (registerSubmit) registerSubmit.addEventListener('click', () => {
+      const name = document.getElementById('register-name')?.value || 'User';
+      const email = document.getElementById('register-email')?.value || '';
+      saveUser(name, email);
+      if (modal) modal.style.display = 'none';
+    });
 
-  // Tabs
-  window.showTab = function(name, btn) {
-    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    const tab = document.getElementById(name);
-    if (tab) tab.classList.add('active');
-    if (btn) btn.classList.add('active');
-  };
+    // SIDEBAR ACCOUNT
+    if (authLink) authLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (localStorage.getItem('userEmail')) {
+        accName.textContent = localStorage.getItem('userName') || '';
+        accEmail.textContent = localStorage.getItem('userEmail') || '';
+        if (sidebar) sidebar.classList.add('open');
+      } else {
+        if (modal) modal.style.display = 'flex';
+      }
+    });
 
-  // LOGIN / REGISTER
-  function saveUser(name, email) {
-    localStorage.setItem('userName', name);
-    localStorage.setItem('userEmail', email);
+    document.querySelectorAll('.close-sidebar').forEach(el => el.addEventListener('click', () => { if (sidebar) sidebar.classList.remove('open'); }));
+    const logoutBtn = document.getElementById('logout-btn');
+    if (logoutBtn) logoutBtn.addEventListener('click', () => {
+      localStorage.removeItem('userName');
+      localStorage.removeItem('userEmail');
+      if (sidebar) sidebar.classList.remove('open');
+      updateNav();
+    });
+
+    function updateNav() {
+      if (authLink) authLink.textContent = localStorage.getItem('userEmail') ? 'My Account' : 'Login / Register';
+    }
     updateNav();
-  }
 
-  const loginSubmit = document.getElementById('login-submit');
-  if (loginSubmit) loginSubmit.addEventListener('click', () => {
-    const email = document.getElementById('login-email')?.value || '';
-    saveUser('User', email);
-    if (modal) modal.style.display = 'none';
-  });
-
-  const registerSubmit = document.getElementById('register-submit');
-  if (registerSubmit) registerSubmit.addEventListener('click', () => {
-    const name = document.getElementById('register-name')?.value || 'User';
-    const email = document.getElementById('register-email')?.value || '';
-    saveUser(name, email);
-    if (modal) modal.style.display = 'none';
-  });
-
-  // SIDEBAR ACCOUNT
-  if (authLink) authLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    if (localStorage.getItem('userEmail')) {
-      accName.textContent = localStorage.getItem('userName') || '';
-      accEmail.textContent = localStorage.getItem('userEmail') || '';
-      if (sidebar) sidebar.classList.add('open');
-    } else {
-      if (modal) modal.style.display = 'flex';
+    // DONATION SYSTEM
+    function renderDonations(donations) {
+      if (!donationList) return;
+      donationList.innerHTML = `<h3 style='margin-top:15px;color:#2c5aa0;'>Recent Donators</h3>`;
+      for (let [name, amount] of Object.entries(donations)) {
+        const div = document.createElement('div');
+        div.className = 'donation-entry';
+        div.innerHTML = `<span>${name}</span><span>₱${amount}</span>`;
+        donationList.append(div);
+      }
     }
-  });
 
-  document.querySelectorAll('.close-sidebar').forEach(el => el.addEventListener('click', () => { if (sidebar) sidebar.classList.remove('open'); }));
-  const logoutBtn = document.getElementById('logout-btn');
-  if (logoutBtn) logoutBtn.addEventListener('click', () => {
-    localStorage.removeItem('userName');
-    localStorage.removeItem('userEmail');
-    if (sidebar) sidebar.classList.remove('open');
-    updateNav();
-  });
-
-  function updateNav() {
-    if (authLink) authLink.textContent = localStorage.getItem('userEmail') ? 'My Account' : 'Login / Register';
-  }
-  updateNav();
-
-  // DONATION SYSTEM
-  function renderDonations(donations) {
-    if (!donationList) return;
-    donationList.innerHTML = `<h3 style='margin-top:15px;color:#2c5aa0;'>Recent Donators</h3>`;
-    for (let [name, amount] of Object.entries(donations)) {
-      const div = document.createElement('div');
-      div.className = 'donation-entry';
-      div.innerHTML = `<span>${name}</span><span>₱${amount}</span>`;
-      donationList.append(div);
+    function addDonation(name, amount) {
+      let donations = JSON.parse(localStorage.getItem(`donations_${campaignID}`)) || {};
+      donations[name] = (donations[name] || 0) + amount;
+      localStorage.setItem(`donations_${campaignID}`, JSON.stringify(donations));
+      amountRaised = Object.values(donations).reduce((a, b) => a + b, 0);
+      renderDonations(donations);
+      updateGoal();
+      localStorage.setItem(CAMPAIGN_KEY, String(amountRaised));
+      localStorage.setItem(CAMPAIGN_GOAL_KEY, String(goalAmount));
     }
-  }
 
-  function addDonation(name, amount) {
-    let donations = JSON.parse(localStorage.getItem('donations')) || {};
-    donations[name] = (donations[name] || 0) + amount;
-    localStorage.setItem('donations', JSON.stringify(donations));
-    amountRaised = Object.values(donations).reduce((a, b) => a + b, 0);
-    renderDonations(donations);
-    updateGoal();
-    localStorage.setItem(CAMPAIGN_KEY, String(amountRaised));
-    localStorage.setItem(CAMPAIGN_GOAL_KEY, String(goalAmount));
-  }
-
-  function updateGoal() {
-    const label = document.getElementById('raised-label');
-    if (label) label.textContent = `₱${amountRaised} raised of ₱${goalAmount} goal`;
-    if (fillEl) fillEl.style.width = Math.min(100, (amountRaised / goalAmount) * 100) + '%';
-    localStorage.setItem(CAMPAIGN_KEY, String(amountRaised));
-    localStorage.setItem(CAMPAIGN_GOAL_KEY, String(goalAmount));
-    localStorage.setItem('progress_' + campaignID, String(amountRaised));
-  }
-
-  // INIT
-  (function init(){
-    let saved = JSON.parse(localStorage.getItem('donations'));
-    if (!saved || Object.keys(saved).length === 0) {
-      const filler = {"Vhener":5,"Jedidiah":10,"Iziah":25};
-      localStorage.setItem('donations', JSON.stringify(filler));
-      saved = filler;
+    function updateGoal() {
+      const label = document.getElementById('raised-label');
+      if (label) label.textContent = `₱${amountRaised} raised of ₱${goalAmount} goal`;
+      if (fillEl) fillEl.style.width = Math.min(100, (amountRaised / goalAmount) * 100) + '%';
+      localStorage.setItem(CAMPAIGN_KEY, String(amountRaised));
+      localStorage.setItem(CAMPAIGN_GOAL_KEY, String(goalAmount));
+      localStorage.setItem('progress_' + campaignID, String(amountRaised));
     }
-    renderDonations(saved);
-    amountRaised = Object.values(saved).reduce((a, b) => a + b, 0);
-    updateGoal();
+
+    // INIT
+    (function init(){
+      let saved = JSON.parse(localStorage.getItem(`donations_${campaignID}`));
+      if (!saved || Object.keys(saved).length === 0) {
+        const filler = {"Vhener":5,"Jedidiah":10,"Iziah":25};
+        localStorage.setItem(`donations_${campaignID}`, JSON.stringify(filler));
+        saved = filler;
+      }
+      renderDonations(saved);
+      amountRaised = Object.values(saved).reduce((a, b) => a + b, 0);
+      updateGoal();
+    })();
+
   })();
-
-})();
 </script>
 
 </body>
