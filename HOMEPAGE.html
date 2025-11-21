@@ -189,10 +189,11 @@
     }
 
     .campaign-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
+     display: grid;
+     grid-template-columns: repeat(5, 1fr);
+     gap: 20px;
     }
+
 
     .campaign-card {
       background: #fff;
@@ -200,6 +201,8 @@
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       overflow: hidden;
       transition: transform 0.3s;
+      display: flex;
+      flex-direction: column;
     }
 
     .campaign-card:hover {
@@ -212,8 +215,15 @@
       object-fit: cover;
     }
 
+    .campaign-card .progress-bar{
+      margin-top: auto;
+    }
+
     .campaign-card .content {
       padding: 20px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
 
     .campaign-card h3 {
@@ -225,6 +235,11 @@
     .campaign-card p {
       margin-bottom: 15px;
       color: #666;
+    }
+
+    .campaign-card .content a{
+      margin-top: 15px;
+      align-self: flex-start;
     }
 
     .progress-bar {
@@ -249,8 +264,8 @@
     }
 
     .campaign-card a {
-      display: inline-block;
-      margin-top: 15px;
+      display: block;
+      margin-top: auto;
       color: #2c5aa0;
       text-decoration: none;
       font-weight: bold;
@@ -478,7 +493,168 @@
   <section id="featured" class="campaigns">
     <h2>Featured Campaigns</h2>
     <div class="campaign-grid" id="campaign-grid">
-      <!-- campaigns will be rendered here by JS -->
+
+      <div class="campaign-card">
+        <img src="Images/water-refilling-station.jpg" alt="Refilling Station Campaign Image">
+        <section id="community-water-refilling-station" class="content">
+          <h3>Water Refilling Station</h3>
+          <p>Establish a clean water refilling station in underserved barangays to provide affordable and safe drinking water for families.</p>
+          <div class="progress-bar">
+            <div class="progress-fill" id="water-progress-fill"></div></div>
+          <div class="meta"><span id="water-amount-meta">₱0 raised of ₱10,000</span><span>20 days left</span></div>
+          <a href="CAMPAIGN-PAGE-WATER.html">View Campaign</a>
+      </div>
+
+      <div class="campaign-card">
+        <img src="Images/bakery.jpg" alt="Baker Campaign Image">
+        <div class="content">
+          <h3>Baker Microbusiness</h3>
+          <p>
+            Support a local baker by helping them purchase an oven so they can expand production, try new recipes, and share even more fresh baked goods. </p>
+          <div class="progress-bar"><div class="progress-fill" id="baker-progress-fill" style="width:0%"></div></div>
+          <div class="meta"><span id="baker-amount-meta">₱0 raised of ₱10,000</span><span>30 days left</span></div>
+          <a href="CAMPAIGN-PAGE-BAKER.html">View Campaign</a>
+        </div>
+      </div>
+
+      <div class="campaign-card">
+        <img src="Images/clinic.jpg" alt="Mobile Clinic Campaign Image">
+        <div class="content">
+          <h3>Mobile Health Clinic</h3>
+          <p>Bring essential health services to remote barangays with a mobile clinic.</p>
+          <div class="progress-bar"><div class="progress-fill" id="clinic-progress-fill" style="width:0%"></div></div>
+          <div class="meta"><span id="clinic-amount-meta">₱0 raised of ₱20,000</span><span>40 days left</span></div>
+          <a href="CAMPAIGN-PAGE-CLINIC.html">View Campaign</a>
+        </div>
+      </div>
+
+      <div class="campaign-card">
+        <img src="Images/garden.jpg" alt="Community Garden Image">
+        <div class="content">
+          <h3>Community Garden Project</h3>
+          <p>Create a shared garden to provide fresh produce and training.</p>
+          <div class="progress-bar"><div class="progress-fill" id="garden-progress-fill" style="width:0%"></div></div>
+          <div class="meta"><span id="garden-amount-meta">₱0 raised of ₱10,000</span><span>15 days left</span></div>
+          <a href="CAMPAIGN-PAGE-GARDEN.html">View Campaign</a>
+        </div>
+      </div>
+
+      <div class="campaign-card">
+        <img src="Images/laundry.jpg" alt="Laundry Shop Campaign Image">
+        <div class="content">
+          <h3>Eco-Friendly Laundry Shop</h3>
+          <p>Launch a modern laundry service using sustainable practices and energy-efficient machines.</p>
+          <div class="progress-bar"><div class="progress-fill" id="laundry-progress-fill" style="width:0%"></div></div>
+          <div class="meta"><span id="laundry-amount-meta">₱0 raised of ₱10,000</span><span>25 days left</span></div>
+          <a href="CAMPAIGN-PAGE-LAUNDRY.html">View Campaign</a>
+        </div>
+      </div>
+
+      <div class="campaign-card">
+        <img src="Images/library.jpg" alt="Library Renovation Image">
+        <div class="content">
+          <h3>Local Library Renovation</h3>
+          <p>Renovate and restock the community library to support learning.</p>
+          <div class="progress-bar"><div class="progress-fill" id="library-progress-fill" style="width:0%"></div></div>
+          <div class="meta"><span id="library-amount-meta">₱0 raised of ₱15,000</span><span>35 days left</span></div>
+          <a href="CAMPAIGN-PAGE-LIBRARY.html">View Campaign</a>
+        </div>
+      </div>
+
+      <div class="campaign-card">
+        <img src="Images/playground.jpg" alt="Playground Campaign Image">
+        <div class="content">
+          <h3>Community Playground Build</h3>
+          <p>Build a safe play area for children in the neighborhood.</p>
+          <div class="progress-bar"><div class="progress-fill" id="playground-progress-fill" style="width:0%"></div></div>
+          <div class="meta"><span id="playground-amount-meta">₱0 raised of ₱12,000</span><span>28 days left</span></div>
+          <a href="CAMPAIGN-PAGE-PLAYGROUND.html">View Campaign</a>
+        </div>
+      </div>
+
+      <div class="campaign-card">
+        <img src="Images/rice.jpg" alt="Rice Distribution Image">
+        <div class="content">
+          <h3>Community Rice Distribution Center</h3>
+          <p>Support a distribution center to ensure food security for families.</p>
+          <div class="progress-bar"><div class="progress-fill" id="ricecenter-progress-fill" style="width:0%"></div></div>
+          <div class="meta"><span id="ricecenter-amount-meta">₱0 raised of ₱9,000</span><span>22 days left</span></div>
+          <a href="CAMPAIGN-PAGE-RICE.html">View Campaign</a>
+        </div>
+      </div>
+
+      <div class="campaign-card">
+        <img src="Images/solar.jpg" alt="Solar Panel Campaign Image">
+        <div class="content">
+          <h3>Solar Panel Electrification</h3>
+          <p>Install solar panels to provide reliable electricity to a community space.</p>
+          <div class="progress-bar"><div class="progress-fill" id="solar-progress-fill" style="width:0%"></div></div>
+          <div class="meta"><span id="solar-amount-meta">₱0 raised of ₱10,000</span><span>40 days left</span></div>
+          <a href="CAMPAIGN-PAGE-SOLAR.html">View Campaign</a>
+        </div>
+      </div>
+
+      <div class="campaign-card">
+        <img src="Images/sari-sari.jpg" alt="Sari-Sari Store Campaign Image">
+        <div class="content">
+          <h3>Modernized Sari-Sari Store</h3>
+          <p>Upgrade a traditional sari-sari store with digital inventory and online ordering.</p>
+          <div class="progress-bar"><div class="progress-fill" id="store-progress-fill" style="width:0%"></div></div>
+          <div class="meta"><span id="store-amount-meta">₱0 raised of ₱10,000</span><span>20 days left</span></div>
+          <a href="CAMPAIGN-PAGE-STORE.html">View Campaign</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+      <div class="campaign-card" id="artisan-card">
+        <img src="Images/laundry.jpg" alt="Laundry Shop Campaign Image">
+        <div class="content">
+          <h3>Eco-Friendly Laundry Shop</h3>
+          <p>Launch a modern laundry service using sustainable practices and energy-efficient machines to serve busy urban residents.</p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 45%;"></div>
+          </div>
+          <div class="meta">
+            <span>₱9,000 raised of ₱10,000</span>
+            <span>25 days left</span>
+          </div>
+          <a href="CAMPAIGN-PAGE-LAUNDRY.html">View Campaign</a>
+        </div>
+      </div>
+
+      <div class="campaign-card">
+        <img src="Images/sari-sari.jpg" alt="Sari-Sari Store Campaign Image">
+        <div class="content">
+          <h3>Modernized Sari-Sari Store</h3>
+          <p>Upgrade a traditional sari-sari store with digital inventory and online ordering to boost local entrepreneurship and convenience.</p>
+          <div class="progress-bar">
+            <div class="progress-fill" id="artisan-progress-fill" style="width: 60%;"></div>
+          </div>
+          <div class="meta">
+            <span id="artisan-amount-meta">₱12,000 raised of ₱20,000</span>
+            <span>20 days left</span>
+          </div>
+          <a href="CAMPAIGN-PAGE-STORE.html">View Campaign</a>
+        </div>
+      </div>
+
+      <div class="campaign-card">
+        <img src="Images/bakery.jpg" alt="Sari-Sari Store Campaign Image">
+        <div class="content">
+          <h3>Bakery</h3>
+          <p>A neighborhood bakery that provides fresh bread, pastries, and a community meeting spot.</p>
+          <div class="progress-bar">
+            <div class="progress-fill" id="artisan-progress-fill" style="width: 60%;"></div>
+          </div>
+          <div class="meta">
+            <span id="artisan-amount-meta">₱12,000 raised of ₱20,000</span>
+            <span>20 days left</span>
+          </div>
+          <a href="CAMPAIGN-PAGE-STORE.html">View Campaign</a>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -598,60 +774,52 @@
         if (btn && btn.classList) btn.classList.add('active');
       };
 
-      // Render campaigns dynamically: include defaults and user-created campaigns saved in localStorage
-      function renderCampaigns() {
-        const defaultCampaigns = [
-          { id: 'water', title: 'Community Water Refilling Station', description: 'Establish a clean water refilling station in underserved barangays to provide affordable and safe drinking water for families.', image: 'Images/water-refilling-station.jpg', goal: 20000, daysLeft: 20, link: 'CAMPAIGN-PAGE-WATER.html' },
-          { id: 'laundry', title: 'Eco-Friendly Laundry Shop', description: 'Launch a modern laundry service using sustainable practices and energy-efficient machines to serve busy urban residents.', image: 'Images/laundry.jpg', goal: 10000, daysLeft: 25, link: 'CAMPAIGN-PAGE-LAUNDRY.html' },
-          { id: 'store', title: 'Modernized Sari-Sari Store', description: 'Upgrade a traditional sari-sari store with digital inventory and online ordering to boost local entrepreneurship and convenience.', image: 'Images/sari-sari.jpg', goal: 20000, daysLeft: 20, link: 'CAMPAIGN-PAGE-STORE.html' }
-        ];
-
-        // load user-created campaigns
-        let custom = [];
-        try { custom = JSON.parse(localStorage.getItem('campaigns_custom') || '[]'); } catch (e) { custom = []; }
-
-        const campaigns = defaultCampaigns.concat(custom);
-        const grid = document.getElementById('campaign-grid');
-        if (!grid) return;
-        grid.innerHTML = '';
-
-        campaigns.forEach(c => {
-          const raisedRaw = localStorage.getItem(`campaign-${c.id}_raised`);
-          const raised = Number.isFinite(parseInt(raisedRaw,10)) ? parseInt(raisedRaw,10) : (c.raised || 0);
-          const goalRaw = localStorage.getItem(`campaign-${c.id}_goal`);
-          const goal = Number.isFinite(parseInt(goalRaw,10)) ? parseInt(goalRaw,10) : (c.goal || 1);
-          const percent = Math.min(100, Math.max(0, (raised / goal) * 100));
-
-          // sanitize id for use as element ids
-          const safeId = c.id.replace(/[^a-zA-Z0-9-_]/g, '-');
-
-          const card = document.createElement('div');
-          card.className = 'campaign-card';
-          card.innerHTML = `
-            <img src="${c.image || 'Images/placeholder.jpg'}" alt="${c.title}">
-            <div class="content">
-              <h3>${c.title}</h3>
-              <p>${c.description}</p>
-              <div class="progress-bar">
-                <div class="progress-fill" id="${safeId}-progress-fill" style="width:${percent}%;"></div>
-              </div>
-              <div class="meta">
-                <span id="${safeId}-amount-meta">₱${raised} raised of ₱${goal}</span>
-                <span>${c.daysLeft || ''} days left</span>
-              </div>
-              <a href="${c.link || '#'}">View Campaign</a>
-            </div>
-          `;
-          grid.appendChild(card);
-        });
-      }
-
-      // initial render and expose render for after creating campaigns
-      renderCampaigns();
+      // Campaigns are static HTML cards (editable directly in the document).
+      // The homepage will not re-render the grid via JS to preserve static content.
 
       // Wire create button to the create page
       const createBtnEl = document.getElementById('create-btn');
       if (createBtnEl) createBtnEl.addEventListener('click', (e) => { e.preventDefault(); window.location.href = 'CREATE-CAMPAIGN-FINAL.html'; });
+
+      // Sync static homepage campaign cards with campaign pages via localStorage
+      const campaignsMap = {
+        water:     { raisedKey: 'campaign-water_raised',     goalKey: 'campaign-water_goal',     defaultGoal: 10000, fillId: 'water-progress-fill',     metaId: 'water-amount-meta' },
+        baker:     { raisedKey: 'campaign-baker_raised',     goalKey: 'campaign-baker_goal',     defaultGoal: 10000, fillId: 'baker-progress-fill',     metaId: 'baker-amount-meta' },
+        clinic:    { raisedKey: 'campaign-clinic_raised',    goalKey: 'campaign-clinic_goal',    defaultGoal: 20000, fillId: 'clinic-progress-fill',    metaId: 'clinic-amount-meta' },
+        garden:    { raisedKey: 'campaign-garden_raised',    goalKey: 'campaign-garden_goal',    defaultGoal: 10000, fillId: 'garden-progress-fill',    metaId: 'garden-amount-meta' },
+        laundry:   { raisedKey: 'campaign-laundry_raised',   goalKey: 'campaign-laundry_goal',   defaultGoal: 10000, fillId: 'laundry-progress-fill',   metaId: 'laundry-amount-meta' },
+        library:   { raisedKey: 'campaign-library_raised',   goalKey: 'campaign-library_goal',   defaultGoal: 15000, fillId: 'library-progress-fill',   metaId: 'library-amount-meta' },
+        playground:{ raisedKey: 'campaign-playground_raised',goalKey: 'campaign-playground_goal',defaultGoal:12000, fillId: 'playground-progress-fill',metaId: 'playground-amount-meta' },
+        ricecenter:{ raisedKey: 'campaign-ricecenter_raised',goalKey: 'campaign-ricecenter_goal',defaultGoal:9000,  fillId: 'ricecenter-progress-fill',metaId: 'ricecenter-amount-meta' },
+        solar:     { raisedKey: 'campaign-solar_raised',     goalKey: 'campaign-solar_goal',     defaultGoal: 10000, fillId: 'solar-progress-fill',     metaId: 'solar-amount-meta' },
+        store:     { raisedKey: 'campaign-store_raised',     goalKey: 'campaign-store_goal',     defaultGoal: 10000, fillId: 'store-progress-fill',     metaId: 'store-amount-meta' }
+      };
+
+      function updateCampaignProgress(cfg) {
+        const rawRaised = localStorage.getItem(cfg.raisedKey);
+        if (rawRaised === null) return; // nothing saved for this campaign
+        const raised = parseInt(rawRaised, 10) || 0;
+        const rawGoal = localStorage.getItem(cfg.goalKey);
+        const goal = rawGoal !== null ? (parseInt(rawGoal,10) || cfg.defaultGoal) : cfg.defaultGoal;
+        const percent = Math.min(100, Math.max(0, (raised / (goal || cfg.defaultGoal)) * 100));
+        const fillEl = document.getElementById(cfg.fillId);
+        const metaEl = document.getElementById(cfg.metaId);
+        if (fillEl) fillEl.style.width = percent + '%';
+        if (metaEl) metaEl.textContent = `₱${raised} raised of ₱${goal}`;
+      }
+
+      function updateAllCampaignProgress() {
+        Object.values(campaignsMap).forEach(cfg => updateCampaignProgress(cfg));
+      }
+
+      // initial sync
+      updateAllCampaignProgress();
+
+      // listen for other tabs/pages updating campaign values
+      window.addEventListener('storage', (ev) => {
+        if (!ev.key) return;
+        if (ev.key.startsWith('campaign-')) updateAllCampaignProgress();
+      });
     })();
   </script>
 </body>
