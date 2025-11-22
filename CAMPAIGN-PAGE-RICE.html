@@ -3,10 +3,19 @@
 <head>
 <meta charset='UTF-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-<title> Rice Retailing Center - ₱1Solution Campaign</title>
-
+<title>Rice Retailing Center - ₱1Solution Campaign</title>
 <style>
- 
+  *{margin:0;
+    padding:0;
+    box-sizing:border-box;}
+
+  body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background:#f4f7fa;
+    color:#333;
+    line-height:1.6;
+  }
+
   header{
     background:#fff;
     box-shadow:0 2px 10px rgba(0,0,0,.1);
@@ -93,6 +102,7 @@
     height:100%;
   }
 
+  /* Coin donate button - No automatic animation */
   .coin-btn{
     width:110px;
     height:110px;
@@ -103,29 +113,42 @@
     cursor:pointer;
     margin:auto;
     display:block;
+    /* Hover effect */
     transition:transform .2s;
   }
   .coin-btn:hover{
     transform:scale(1.1);
   }
 
+  /* Falling animation class - Applied on click */
   .coin-falling {
     animation: coinFall 1.5s ease-out;
   }
 
+  /* Keyframes for falling animation - Starts from original position */
   @keyframes coinFall {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(200px); opacity: 0; }
+    0% {
+      transform: translateY(0); /* Start at original position */
+      opacity: 1; /* Fully visible */
+    }
+    100% {
+      transform: translateY(200px); /* Fall down 200px */
+      opacity: 0; /* Fade out as it falls */
+    }
   }
 
   .creator-box {
   background: #ffffff;
-  border: 3px solid #2c5aa0;
+  border: 3px solid #2c5aa0;       /* THICK BORDER so you SEE separation */
   border-radius: 12px;
   padding: 20px;
   margin-top: 30px;
+
+  /* This forces spacing even inside flex layouts */
   display: block !important;
   width: 100% !important;
+
+  /* Forces visible separation */
   box-shadow: 0 0 15px rgba(0,0,0,0.15);
   }
 
@@ -142,6 +165,9 @@
     border: 3px solid #2c5aa0;
     object-fit: cover;
   }
+
+
+
 
   .story-box{
     background:#fff;
@@ -181,15 +207,51 @@
     z-index:999;
   }
 
-  .modal-content{
-    max-width:400px;
-    width:90%;
-    position:relative;
+  .modal-content {
     background: #fff;
     border-radius: 8px;
-    padding: 18px;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   }
+
+  .close{position:absolute;
+    right:15px;top:10px;
+    font-size:24px;
+    cursor:pointer;
+  }
+
+  .tab-buttons{
+    display:flex;
+    margin-bottom:20px;
+  }
+
+  .tab-btn{
+    flex:1;
+    padding:10px;
+    border:none;
+    background:#eee;
+    font-weight:bold;
+    cursor:pointer;
+  }
+
+  .tab-btn.active{
+    background:#2c5aa0;
+    color:#fff;}
+  .tab-content{
+    display:none;
+  }
+  .tab-content.active{display:block;}
+  .form-group{margin-bottom:15px;}
+  .form-group input{
+    width:100%;
+    padding:10px;
+    border:1px solid:#ddd;
+    border-radius:4px;
+  }
+
   .modal-btn{
     width:100%;
     padding:12px;
@@ -202,32 +264,57 @@
     cursor:pointer;
   }
 
-  .close{position:absolute;
-    right:15px;top:10px;
+  /* SIDEBAR */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: -350px;
+    width: 300px;
+    height: 100%;
+    background: #fff;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+    padding: 20px;
+    transition: right 0.3s;
+    z-index: 2000;
+  }
+  .sidebar.open {right: 0;}
+  .close-sidebar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
     font-size:24px;
     cursor:pointer;
   }
 
-  .my-table{
-   width:100%;
-   margin-bottom:20px;
-   border-collapse:separate;
-   border-spacing:0 1px;
-  } 
-  .my-table th,.my-table td{
-   border:2px solid #2c5aa0;
-   border-radius:12px;
-   padding:8px;
-  } 
-  .my-table th{
-   background:#2c5aa0;
-   color:white;
+  @media(max-width:900px){
+    .layout{flex-direction:column;}
   }
- 
+
+  .my-table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: separate;
+    border-spacing: 0 1px;
+    order-radius: 5px;
+    
+  }
+  .my-table th,
+  .my-table td {
+    border: 2px solid #2c5aa0;
+    border-radius: 12px;
+    padding: 8px;
+  }
+
+  .my-table th {
+
+    background:#2c5aa0 ;
+    color: white;
+  }
+  
 </style>
 </head>
-
 <body>
+
 <header>
   <div class='header-content'>
     <div class='logo'><img src='Images/logo.jfif' id='logo-click'></div>
@@ -243,62 +330,44 @@
 
 <div class='layout'>
   <div class='left-column'>
-    <img src='Images/rice.jpg' class='campaign-img'>
+    <img src='Images/store.jpg' class='campaign-img'>
+    <h1 class='campaign-title'>Rice Retailing Center </h1>
 
     <div class='story-box'>
       <h2>Story</h2>
       <p>
-      <h3>Help fund a small rice retailing business to provide stable income to a family in need.</h3><br><br>
-      Rice is a daily necessity, and selling it in small affordable quantities can create a reliable income source. This campaign aims to help a parent establish a rice retailing center in their community, allowing them to sell rice by the kilo to neighbors, workers, and students.<br><br>
-      With a small starting capital, they can begin buying rice sacks wholesale and earn consistent daily profit. This small business has low risk, high demand, and can grow steadily over time.<br><br>
+       In Barangay Mabini, many families start and end their day with rice on the table—but with rising prices, some households struggle to afford it. Seeing this challenge firsthand, a young entrepreneur decided to build something meaningful: a small rice retailing center that would give the community easier access to affordable and good-quality rice.Instead of waking up worried about how much rice they can buy for the day, the goal is to let families feel secure knowing that a reliable and consistent rice supply is close by, fairly priced, and handled with care. The dream is simple: a small business that brings big comfort to the everyday Filipino family—one kilo at a time.
+      </p>
 
-      <h3>Where the Funds Will Go</h3>
+<h3 style="margin-top:20px;color:#2c5aa0;">What is the campaign about?</h3>
+<p>
+This campaign is about establishing a community rice retailing center that provides affordable, clean, and high-quality rice to families while supporting small local livelihoods
+</p>
+
+     
+      <h3 style="margin-top:20px;color:#2c5aa0;">Where will it be located?</h3>
+      <p>
+      The Rice Retailing Center will be located in Barangay Mabini, Batangas City, Philippines, a community where rice is purchased daily and affordable options are highly valued.
+      </p>
+      <h3 style="margin-top:20px;color:#2c5aa0;">Where will the funds go? (₱55,000 Budget)</h3>
       <table class='my-table'>
         <thead>
-          <tr>
-            <th><h3>Item</h3></th>
-            <th><h3>Cost</h3></th>
-          </tr>
+          <tr><th>Item</th><th>Cost</th></tr>
         </thead>
         <tbody>
-          <tr>
-           <td>Initial stock (3–4 rice sacks)</td>
-           <td>₱6,000</td>
-          </tr>
-          <tr>
-           <td>Weighing scale</td>
-           <td>₱1,200</td>
-          </tr>
-          <tr>
-           <td>Plastic containers for storage</td>
-           <td>₱1,000</td>
-          </tr>
-          <tr>
-           <td>Scoops and measuring tools</td>
-           <td>₱400</td>
-          </tr>
-          <tr>
-           <td>Store signage</td>
-           <td>₱800</td>
-          </tr>
-          <tr>
-           <td>Clean sacks and packaging</td>
-           <td>₱600</td>
-          </tr>
-          <tr>
-           <td><h3>Total</h3></td>
-           <td>₱10,000</td>
-          </tr>
+          <tr><td>Large containers, scoops, and storage</td><td>₱10,000</td></tr>
+          <tr><td> Weighing scale</td><td>₱3,000</td></tr>
+          <tr><td>Basic store signage or tarpaulin</td><td>₱2,000</td></tr>
+          <tr><td>Initial rice stock (10–20 sacks)</td><td>₱30,000</td></tr>
+          <tr><td>Wooden shelves or store improvements</td><td>₱10,000</td></tr>
         </tbody>
       </table>
-      </p>
-    </div>
-  </div>
+
+    
 
   <div class='right-column'>
-    <h2 class='campaign-title'>Rice Retailing Center</h2>
     <div class='progress-box'>
-      <strong id='raised-label'>₱0 raised of ₱10000 goal</strong>
+      <strong id='raised-label'>₱0 raised of 55,000 goal</strong>
       <div class='progress-bar'>
         <div class='progress-fill' id='fill'></div>
       </div>
@@ -313,27 +382,28 @@
       <div class='donation-entry'><span>Carlo</span><span>₱2</span></div>
     </div>
 
-      <div class="author-box">
-    <div class="creator-box">
-    <h3>Campaign Creator</h3>
-  
-    <div class="creator-box-content">
-      <img src="Images/profile.jpg" class="creator-photo">
-      <div>
-        <p><strong>Name:</strong> Juan Dela Cruz</p>
-        <p><strong>Email:</strong> juan@example.com</p>
-        <p><strong>About:</strong> Barber Shop</p>
-      </div>
+    <div class="author-box">
+  <div class="creator-box">
+  <h3>Campaign Creator</h3>
+
+  <div class="creator-box-content">
+    <img src="Images/profile.jpg" class="creator-photo">
+    <div>
+      <p><strong>Name:</strong> Angela Rose Dela Cruz</p>
+      <p><strong>Email:</strong>angelarosedelacruz.campaign@gmail.com</p>
+      <p><strong>About:</strong>Angela Rose is a community-driven entrepreneur passionate about helping Filipino families through small but meaningful businesses. She believes that every great livelihood program begins with a simple idea that serves a real need.</p>
     </div>
   </div>
- </div>
 </div>
+
 </div>
-</body>
-</html>
+
+
+  </div>
+</div>
 
 <footer>
- ₱1Solution • All Rights Reserved.
+  ₱1Solution • All Rights Reserved.
 </footer>
 
 <!-- Modal -->
@@ -370,7 +440,7 @@
 <script>
 // Consolidated script for Laundry campaign — defensive, single init, per-campaign keys.
   (function(){
-    const campaignID = 'rice';
+    const campaignID = 'store';
     const CAMPAIGN_KEY = `campaign-${campaignID}_raised`;
     const CAMPAIGN_GOAL_KEY = `campaign-${campaignID}_goal`;
 
@@ -385,8 +455,8 @@
     if (browseLink) browseLink.onclick = () => { window.location.href = 'HOMEPAGE.html#featured'; };
 
     // STATE
-    let amountRaised = 6245 ;
-    let goalAmount = parseInt(localStorage.getItem(CAMPAIGN_GOAL_KEY)) || 10000;
+    let amountRaised = 0 ;
+    let goalAmount = parseInt(localStorage.getItem(CAMPAIGN_GOAL_KEY)) || 15000;
 
     // ELEMENTS
     const modal = document.getElementById('auth-modal');
@@ -442,86 +512,4 @@
 
     const registerSubmit = document.getElementById('register-submit');
     if (registerSubmit) registerSubmit.addEventListener('click', () => {
-      const name = document.getElementById('register-name')?.value || 'User';
-      const email = document.getElementById('register-email')?.value || '';
-      saveUser(name, email);
-      if (modal) modal.style.display = 'none';
-    });
-
-    // SIDEBAR ACCOUNT
-    if (authLink) authLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (localStorage.getItem('userEmail')) {
-        accName.textContent = localStorage.getItem('userName') || '';
-        accEmail.textContent = localStorage.getItem('userEmail') || '';
-        if (sidebar) sidebar.classList.add('open');
-      } else {
-        if (modal) modal.style.display = 'flex';
-      }
-    });
-
-    document.querySelectorAll('.close-sidebar').forEach(el => el.addEventListener('click', () => { if (sidebar) sidebar.classList.remove('open'); }));
-    const logoutBtn = document.getElementById('logout-btn');
-    if (logoutBtn) logoutBtn.addEventListener('click', () => {
-      localStorage.removeItem('userName');
-      localStorage.removeItem('userEmail');
-      if (sidebar) sidebar.classList.remove('open');
-      updateNav();
-    });
-
-    function updateNav() {
-      if (authLink) authLink.textContent = localStorage.getItem('userEmail') ? 'My Account' : 'Login / Register';
-    }
-    updateNav();
-
-    // DONATION SYSTEM
-    function renderDonations(donations) {
-      if (!donationList) return;
-      donationList.innerHTML = `<h3 style='margin-top:15px;color:#2c5aa0;'>Recent Donators</h3>`;
-      for (let [name, amount] of Object.entries(donations)) {
-        const div = document.createElement('div');
-        div.className = 'donation-entry';
-        div.innerHTML = `<span>${name}</span><span>₱${amount}</span>`;
-        donationList.append(div);
-      }
-    }
-
-    function addDonation(name, amount) {
-      let donations = JSON.parse(localStorage.getItem(`donations_${campaignID}`)) || {};
-      donations[name] = (donations[name] || 0) + amount;
-      localStorage.setItem(`donations_${campaignID}`, JSON.stringify(donations));
-      amountRaised = Object.values(donations).reduce((a, b) => a + b, 0);
-      renderDonations(donations);
-      updateGoal();
-      localStorage.setItem(CAMPAIGN_KEY, String(amountRaised));
-      localStorage.setItem(CAMPAIGN_GOAL_KEY, String(goalAmount));
-    }
-
-    function updateGoal() {
-      const label = document.getElementById('raised-label');
-      if (label) label.textContent = `₱${amountRaised} raised of ₱${goalAmount} goal`;
-      if (fillEl) fillEl.style.width = Math.min(100, (amountRaised / goalAmount) * 100) + '%';
-      localStorage.setItem(CAMPAIGN_KEY, String(amountRaised));
-      localStorage.setItem(CAMPAIGN_GOAL_KEY, String(goalAmount));
-      localStorage.setItem('progress_' + campaignID, String(amountRaised));
-    }
-
-    // INIT
-    (function init(){
-      let saved = JSON.parse(localStorage.getItem(`donations_${campaignID}`));
-      if (!saved || Object.keys(saved).length === 0) {
-        const filler = {"Vhener":5,"Jedidiah":10,"Iziah":25};
-        localStorage.setItem(`donations_${campaignID}`, JSON.stringify(filler));
-        saved = filler;
-      }
-      renderDonations(saved);
-      amountRaised = Object.values(saved).reduce((a, b) => a + b, 0);
-      updateGoal();
-    })();
-
-  })();
-</script>
-
-</body>
-
-</html>
+      const name = document.getElement
