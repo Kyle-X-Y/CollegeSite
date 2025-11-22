@@ -123,14 +123,8 @@
   }
 
   @keyframes coinFall {
-    0% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(200px);
-      opacity: 0;
-    }
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(200px); opacity: 0; }
   }
 
   .creator-box {
@@ -223,34 +217,13 @@
     cursor:pointer;
   }
 
-  .tab-buttons{
-    display:flex;
-    margin-bottom:20px;
-  }
-
-  .tab-btn{
-    flex:1;
-    padding:10px;
-    border:none;
-    background:#eee;
-    font-weight:bold;
-    cursor:pointer;
-  }
-
-  .tab-btn.active{
-    background:#2c5aa0;
-    color:#fff;}
-  .tab-content{
-    display:none;
-  }
+  .tab-buttons{display:flex;margin-bottom:20px;}
+  .tab-btn{flex:1;padding:10px;border:none;background:#eee;font-weight:bold;cursor:pointer;}
+  .tab-btn.active{background:#2c5aa0;color:#fff;}
+  .tab-content{display:none;}
   .tab-content.active{display:block;}
   .form-group{margin-bottom:15px;}
-  .form-group input{
-    width:100%;
-    padding:10px;
-    border:1px solid:#ddd;
-    border-radius:4px;
-  }
+  .form-group input{width:100%;padding:10px;border:1px solid:#ddd;border-radius:4px;}
 
   .sidebar {
     position: fixed;
@@ -301,11 +274,25 @@
     <div class='story-box'>
       <h2>Story</h2>
       <p>
-      In this farming community, rice—their most essential food—has become increasingly difficult to access. Local families depend on small harvests that often run out before the next planting season. When this happens, they must travel many kilometers just to buy a few kilos of rice at high prices.
-      <br>
-      A small rice distribution center inside the barangay will give families consistent access to affordable and clean rice. It ensures no child goes to sleep hungry, no parent needs to walk long distances, and no elder is left without food during lean months.
-      <br>
-      Your support helps build a stable and reliable source of nourishment for the entire community.
+        In many rural communities in the Philippines, families struggle to access consistent and affordable rice, the country’s staple food. Small harvests, unpredictable weather, and high market prices often leave parents walking long distances just to buy a few kilos of rice, while children go to school hungry and elders face food insecurity. The <strong>Community Rice Distribution Center</strong> aims to change that by providing a stable, local source of clean and affordable rice, ensuring that no one in the community goes without one of their most basic needs. By centralizing rice distribution and working closely with local farmers, the center also supports the local agricultural economy.
+      </p>
+
+      <h3 style="margin-top:20px;color:#2c5aa0;">What is the campaign about?</h3>
+      <p>
+        With your help, we can establish a reliable rice distribution hub that serves the entire barangay efficiently. Funds raised will be allocated to purchasing rice in bulk at lower prices, constructing simple storage facilities to keep the rice fresh, and covering logistics like transportation and maintenance. Additionally, a portion of the budget will be used to train local volunteers in inventory management, ensuring the center operates smoothly and sustainably. With around ₱15,000, we can make a meaningful impact, providing regular rice supply for dozens of families while keeping costs manageable for everyone.
+      </p>
+
+      <h3 style="margin-top:20px;color:#2c5aa0;">What will you do with the funds? (₱15,000 Budget)</h3>
+      <p>
+        • ₱8,000 – ₱10,000 – Bulk rice purchase<br>
+        • ₱3,000 – Storage materials (shelves, sacks, containers)<br>
+        • ₱2,000 – Transportation & logistics<br>
+        • ₱1,000 – ₱2,000 – Volunteer training & administrative costs
+      </p>
+
+      <h3 style="margin-top:20px;color:#2c5aa0;">Where will it be located?</h3>
+      <p>
+        Barangay San Isidro, Tarlac City, Tarlac, Philippines
       </p>
     </div>
   </div>
@@ -329,21 +316,18 @@
     </div>
 
     <div class="author-box">
-  <div class="creator-box">
-  <h3>Campaign Creator</h3>
-
-  <div class="creator-box-content">
-    <img src="Images/profile3.jpg" class="creator-photo">
-    <div>
-      <p><strong>Name:</strong> Roberto Fernandez</p>
-      <p><strong>Email:</strong> roberto@example.com</p>
-      <p><strong>About:</strong> Community Food Programs</p>
+      <div class="creator-box">
+        <h3>Campaign Creator</h3>
+        <div class="creator-box-content">
+          <img src="Images/profile3.jpg" class="creator-photo">
+          <div>
+            <p><strong>Name:</strong> Roberto Fernandez</p>
+            <p><strong>Email:</strong> roberto@example.com</p>
+            <p><strong>About:</strong> Community Food Programs</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-
-</div>
-
 
   </div>
 </div>
@@ -382,13 +366,11 @@
 </div>
 
 <script>
-// Consolidated script for Laundry campaign — defensive, single init, per-campaign keys.
   (function(){
-    const campaignID = 'baker';
+    const campaignID = 'ricecenter';
     const CAMPAIGN_KEY = `campaign-${campaignID}_raised`;
     const CAMPAIGN_GOAL_KEY = `campaign-${campaignID}_goal`;
 
-    // NAV
     const authLink = document.getElementById('auth-link');
     const homeLink = document.getElementById('home-link');
     const browseLink = document.getElementById('browse-link');
@@ -398,11 +380,9 @@
     if (logoClick) logoClick.onclick = () => { window.location.href = 'HOMEPAGE.html'; };
     if (browseLink) browseLink.onclick = () => { window.location.href = 'HOMEPAGE.html#featured'; };
 
-    // STATE
-    let amountRaised = 3972 ;
-    let goalAmount = parseInt(localStorage.getItem(CAMPAIGN_GOAL_KEY)) || 10000;
+    let amountRaised = 1850 ;
+    let goalAmount = parseInt(localStorage.getItem(CAMPAIGN_GOAL_KEY)) || 9000;
 
-    // ELEMENTS
     const modal = document.getElementById('auth-modal');
     const donate = document.getElementById('donate-btn');
     const closeBtn = document.querySelector('.close');
@@ -412,7 +392,6 @@
     const donationList = document.getElementById('donation-list');
     const fillEl = document.getElementById('fill');
 
-    // DONATE
     if (donate) {
       donate.addEventListener('click', (e) => {
         e.preventDefault();
@@ -427,11 +406,9 @@
       });
     }
 
-    // CLOSE HANDLERS
     if (closeBtn) closeBtn.addEventListener('click', () => { if (modal) modal.style.display = 'none'; });
     window.addEventListener('click', (e) => { if (e.target === modal && modal) modal.style.display = 'none'; });
 
-    // Tabs
     window.showTab = function(name, btn) {
       document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -440,7 +417,6 @@
       if (btn) btn.classList.add('active');
     };
 
-    // LOGIN / REGISTER
     function saveUser(name, email) {
       localStorage.setItem('userName', name);
       localStorage.setItem('userEmail', email);
@@ -462,7 +438,6 @@
       if (modal) modal.style.display = 'none';
     });
 
-    // SIDEBAR ACCOUNT
     if (authLink) authLink.addEventListener('click', (e) => {
       e.preventDefault();
       if (localStorage.getItem('userEmail')) {
@@ -488,7 +463,6 @@
     }
     updateNav();
 
-    // DONATION SYSTEM
     function renderDonations(donations) {
       if (!donationList) return;
       donationList.innerHTML = `<h3 style='margin-top:15px;color:#2c5aa0;'>Recent Donators</h3>`;
@@ -503,38 +477,3 @@
     function addDonation(name, amount) {
       let donations = JSON.parse(localStorage.getItem(`donations_${campaignID}`)) || {};
       donations[name] = (donations[name] || 0) + amount;
-      localStorage.setItem(`donations_${campaignID}`, JSON.stringify(donations));
-      amountRaised = Object.values(donations).reduce((a, b) => a + b, 0);
-      renderDonations(donations);
-      updateGoal();
-      localStorage.setItem(CAMPAIGN_KEY, String(amountRaised));
-      localStorage.setItem(CAMPAIGN_GOAL_KEY, String(goalAmount));
-    }
-
-    function updateGoal() {
-      const label = document.getElementById('raised-label');
-      if (label) label.textContent = `₱${amountRaised} raised of ₱${goalAmount} goal`;
-      if (fillEl) fillEl.style.width = Math.min(100, (amountRaised / goalAmount) * 100) + '%';
-      localStorage.setItem(CAMPAIGN_KEY, String(amountRaised));
-      localStorage.setItem(CAMPAIGN_GOAL_KEY, String(goalAmount));
-      localStorage.setItem('progress_' + campaignID, String(amountRaised));
-    }
-
-    // INIT
-    (function init(){
-      let saved = JSON.parse(localStorage.getItem(`donations_${campaignID}`));
-      if (!saved || Object.keys(saved).length === 0) {
-        const filler = {"Vhener":5,"Jedidiah":10,"Iziah":25};
-        localStorage.setItem(`donations_${campaignID}`, JSON.stringify(filler));
-        saved = filler;
-      }
-      renderDonations(saved);
-      amountRaised = Object.values(saved).reduce((a, b) => a + b, 0);
-      updateGoal();
-    })();
-
-  })();
-</script>
-
-</body>
-</html>
