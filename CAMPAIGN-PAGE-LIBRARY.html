@@ -5,251 +5,52 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 <title>Local Library Renovation - ₱1Solution Campaign</title>
 <style>
-  *{margin:0;
-    padding:0;
-    box-sizing:border-box;}
-
-  body{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background:#f4f7fa;
-    color:#333;
-    line-height:1.6;
-  }
-
-  header{
-    background:#fff;
-    box-shadow:0 2px 10px rgba(0,0,0,.1);
-    position:sticky;
-    top:0;
-    z-index:100;
-  }
-  .header-content{
-    max-width:1800px;
-    margin:auto;
-    padding:15px 20px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-  }
-  nav ul{display:flex;
-    gap:20px;
-    list-style:none;
-  }
-
-  nav a{
-    text-decoration:none;
-    color:#555;
-    font-weight:500;
-    cursor:pointer;
-  }
-
+  *{margin:0; padding:0; box-sizing:border-box;}
+  body{font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f4f7fa; color:#333; line-height:1.6;}
+  header{background:#fff; box-shadow:0 2px 10px rgba(0,0,0,.1); position:sticky; top:0; z-index:100;}
+  .header-content{max-width:1800px; margin:auto; padding:15px 20px; display:flex; justify-content:space-between; align-items:center;}
+  nav ul{display:flex; gap:20px; list-style:none;}
+  nav a{text-decoration:none; color:#555; font-weight:500; cursor:pointer;}
   nav a:hover{color:#2c5aa0;}
-  .logo img{
-    width:180px;
-    cursor:pointer;
-  }
-
-  .layout{
-    max-width:1800px;
-    margin:30px auto;
-    display:flex;
-    gap:30px;
-  }
-
+  .logo img{width:180px; cursor:pointer;}
+  .layout{max-width:1800px; margin:30px auto; display:flex; gap:30px;}
   .left-column{flex:2;}
-
-  .right-column{
-    flex:1;
-    background:#fff;
-    padding:20px;
-    border-radius:8px;
-    box-shadow:0 2px 10px rgba(0,0,0,.1);
-    height:fit-content;
-  }
-
-  .campaign-img{
-    width:100%;
-    border-radius:8px;
-    margin-bottom:15px;
-    object-fit:cover;
-    object-position:center;
-    height:300px;
-  }
-
-  .campaign-title{
-    text-align:center;
-    color:#2c5aa0;
-    margin-bottom:10px;
-    font-size:2em;
-  }
-
-  .progress-box{
-    margin:10px 0;
-    padding:10px;
-    background:#f4f7fa;
-    border-radius:6px;
-  }
-
-  .progress-bar{
-    background:#ddd;
-    height:10px;
-    border-radius:4px;
-    overflow:hidden;
-  }
-
-  .progress-fill{
-    background:#4a90e2;
-    height:100%;
-  }
-
-  .coin-btn{
-    width:110px;
-    height:110px;
-    background:url('Images/piso.jfif');
-    background-size:cover;
-    background-position:center;
-    border:none;
-    cursor:pointer;
-    margin:auto;
-    display:block;
-    transition:transform .2s;
-  }
-  .coin-btn:hover{
-    transform:scale(1.1);
-  }
-
-  .coin-falling {
-    animation: coinFall 1.5s ease-out;
-  }
-
-  @keyframes coinFall {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(200px); opacity: 0; }
-  }
-
-  .creator-box {
-  background: #ffffff;
-  border: 3px solid #2c5aa0;
-  border-radius: 12px;
-  padding: 20px;
-  margin-top: 30px;
-  display: block !important;
-  width: 100% !important;
-  box-shadow: 0 0 15px rgba(0,0,0,0.15);
-  }
-
-  .creator-box-content {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-  }
-
-  .creator-photo {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 3px solid #2c5aa0;
-    object-fit: cover;
-  }
-
-  .story-box{
-    background:#fff;
-    padding:20px;
-    border-radius:8px;
-    box-shadow:0 2px 10px rgba(0,0,0,.1);
-    margin-bottom:20px;
-  }
-
+  .right-column{flex:1; background:#fff; padding:20px; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.1); height:fit-content;}
+  .campaign-img{width:100%; border-radius:8px; margin-bottom:15px; object-fit:cover; object-position:center; height:300px;}
+  .campaign-title{text-align:center; color:#2c5aa0; margin-bottom:10px; font-size:2em;}
+  .progress-box{margin:10px 0; padding:10px; background:#f4f7fa; border-radius:6px;}
+  .progress-bar{background:#ddd; height:10px; border-radius:4px; overflow:hidden;}
+  .progress-fill{background:#4a90e2; height:100%;}
+  .coin-btn{width:110px; height:110px; background:url('Images/piso.jfif'); background-size:cover; background-position:center; border:none; cursor:pointer; margin:auto; display:block; transition:transform .2s;}
+  .coin-btn:hover{transform:scale(1.1);}
+  .coin-falling {animation: coinFall 1.5s ease-out;}
+  @keyframes coinFall {0% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(200px); opacity: 0; }}
+  .creator-box {background:#ffffff; border:3px solid #2c5aa0; border-radius:12px; padding:20px; margin-top:30px; display:block !important; width:100% !important; box-shadow:0 0 15px rgba(0,0,0,0.15);}
+  .creator-box-content {display:flex; align-items:center; gap:15px;}
+  .creator-photo {width:80px; height:80px; border-radius:50%; border:3px solid #2c5aa0; object-fit:cover;}
+  .story-box{background:#fff; padding:20px; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.1); margin-bottom:20px;}
   .donation-list{margin-top:15px;}
-  .donation-entry{
-    background:#fff;padding:10px;
-    border-radius:5px;
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:10px;
-    box-shadow:0 1px 4px rgba(0,0,0,.05);
-  }
-
-  footer{
-    margin-top:50px;
-    background:#2c5aa0;
-    color:#fff;
-    text-align:center;
-    padding:20px;
-  }
-
-  .modal{
-    display:none;
-    position:fixed;
-    left:0;top:0;
-    width:100%;
-    height:100%;
-    justify-content:center;
-    align-items:center;
-    background:rgba(0,0,0,.5);
-    z-index:999;
-  }
-
-  .modal-content{
-    max-width:400px;
-    width:90%;
-    position:relative;
-    background: #fff;
-    border-radius: 8px;
-    padding: 18px;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.2);
-  }
-  .modal-btn{
-    width:100%;
-    padding:12px;
-    background:#2c5aa0;
-    color:#fff;
-    border:none;
-    border-radius:4px;
-    font-weight:bold;
-    margin-top:10px;
-    cursor:pointer;
-  }
-
-  .close{position:absolute;
-    right:15px;top:10px;
-    font-size:24px;
-    cursor:pointer;
-  }
-
-  .tab-buttons{display:flex;margin-bottom:20px;}
-  .tab-btn{flex:1;padding:10px;border:none;background:#eee;font-weight:bold;cursor:pointer;}
-  .tab-btn.active{background:#2c5aa0;color:#fff;}
+  .donation-entry{background:#fff; padding:10px; border-radius:5px; display:flex; justify-content:space-between; margin-bottom:10px; box-shadow:0 1px 4px rgba(0,0,0,.05);}
+  .footer{margin-top:50px; background:#2c5aa0; color:#fff; text-align:center; padding:20px;}
+  .modal{display:none; position:fixed; left:0; top:0; width:100%; height:100%; justify-content:center; align-items:center; background:rgba(0,0,0,.5); z-index:999;}
+  .modal-content{max-width:400px; width:90%; position:relative; background:#fff; border-radius:8px; padding:18px; box-shadow:0 6px 24px rgba(0,0,0,0.2);}
+  .modal-btn{width:100%; padding:12px; background:#2c5aa0; color:#fff; border:none; border-radius:4px; font-weight:bold; margin-top:10px; cursor:pointer;}
+  .close{position:absolute; right:15px; top:10px; font-size:24px; cursor:pointer;}
+  .tab-buttons{display:flex; margin-bottom:20px;}
+  .tab-btn{flex:1; padding:10px; border:none; background:#eee; font-weight:bold; cursor:pointer;}
+  .tab-btn.active{background:#2c5aa0; color:#fff;}
   .tab-content{display:none;}
   .tab-content.active{display:block;}
   .form-group{margin-bottom:15px;}
-  .form-group input{width:100%;padding:10px;border:1px solid:#ddd;border-radius:4px;}
-
-  .sidebar {
-    position: fixed;
-    top: 0;
-    right: -350px;
-    width: 300px;
-    height: 100%;
-    background: #fff;
-    box-shadow: -2px 0 10px rgba(0,0,0,0.2);
-    padding: 20px;
-    transition: right 0.3s;
-    z-index: 2000;
-  }
-  .sidebar.open {right: 0;}
-  .close-sidebar {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size:24px;
-    cursor:pointer;
-  }
-
-  @media(max-width:900px){
-    .layout{flex-direction:column;}
-  }
-
+  .form-group input{width:100%; padding:10px; border:1px solid #ddd; border-radius:4px;}
+  .sidebar{position:fixed; top:0; right:-350px; width:300px; height:100%; background:#fff; box-shadow:-2px 0 10px rgba(0,0,0,0.2); padding:20px; transition:right 0.3s; z-index:2000;}
+  .sidebar.open{right:0;}
+  .close-sidebar{position:absolute; top:10px; right:15px; font-size:24px; cursor:pointer;}
+  @media(max-width:900px){.layout{flex-direction:column;}}
+  /* Table styles */
+  .my-table{width:100%; margin-bottom:20px; border-collapse:separate; border-spacing:0 1px; border-radius:5px;}
+  .my-table th, .my-table td{border:2px solid #2c5aa0; border-radius:12px; padding:8px;}
+  .my-table th{background:#2c5aa0; color:white;}
 </style>
 </head>
 <body>
@@ -274,9 +75,7 @@
     <div class='story-box'>
       <h2>Story</h2>
       <p>
-      For years, the local library has been a quiet refuge for students, families, and anyone seeking a place to learn. But as time passed, the building became worn down—broken shelves, outdated lighting, and limited seating slowly made it harder for people to study comfortably. What was once a vibrant learning space now struggles to meet the needs of a growing community that depends on it.
-      <br><br>
-      This renovation campaign aims to bring life back into the library. By upgrading the interiors, adding new shelves, improving lighting, and creating better reading spaces, the goal is to rebuild an environment where knowledge, creativity, and curiosity can thrive again.
+      For years, the local library has been a quiet refuge for students, families, and anyone seeking a place to learn. But as time passed, the building became worn down—broken shelves, outdated lighting, and limited seating slowly made it harder for people to study comfortably.
       </p>
 
       <h3 style="margin-top:20px;color:#2c5aa0;">What is the campaign about?</h3>
@@ -284,19 +83,22 @@
       This campaign seeks to transform the old library into a modern, welcoming community learning center. The renovation includes repairing damaged areas, installing new shelves, updating furniture, and adding computers for students who need digital access.
       </p>
 
-      <h3 style="margin-top:20px;color:#2c5aa0;">What will you do with the funds? (₱15,000 Budget)</h3>
-      <p>
-        • ₱5,000 — New bookshelves and storage units<br>
-        • ₱4,000 — LED lighting upgrade for reading areas<br>
-        • ₱3,000 — Tables, chairs, and study desks<br>
-        • ₱2,000 — Two refurbished computers for student use<br>
-        • ₱1,000 — Paint, repairs, and general improvements
-      </p>
+      <h3 style="margin-top:20px;color:#2c5aa0;">Where will the funds go? (₱15,000 Budget)</h3>
+      <table class='my-table'>
+        <thead>
+          <tr><th>Item</th><th>Cost</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>New bookshelves and storage units</td><td>₱5,000</td></tr>
+          <tr><td>LED lighting upgrade for reading areas</td><td>₱4,000</td></tr>
+          <tr><td>Tables, chairs, and study desks</td><td>₱3,000</td></tr>
+          <tr><td>Two refurbished computers for student use</td><td>₱2,000</td></tr>
+          <tr><td>Paint, repairs, and general improvements</td><td>₱1,000</td></tr>
+        </tbody>
+      </table>
 
-      <h3 style="margin-top:20px;color:#2c5aa0;">Where will it be located?</h3>
-      <p>
-      The renovation will take place at the community library in **Barangay San Mateo**, serving students, readers, and families from surrounding areas.
-      </p>
+      <h3 style="margin-top:20px;color:#2c5aa0;">Location</h3>
+      <p>The renovation will take place at the community library in <strong>Barangay San Mateo</strong>, serving students, readers, and families from surrounding areas.</p>
     </div>
   </div>
 
@@ -319,28 +121,23 @@
     </div>
 
     <div class="author-box">
-  <div class="creator-box">
-  <h3>Campaign Creator</h3>
-
-  <div class="creator-box-content">
-    <img src="Images/profile5.jpg" class="creator-photo">
-    <div>
-      <p><strong>Name:</strong> Sofia Reyes</p>
-      <p><strong>Email:</strong> sofia.reyes@example.com</p>
-      <p><strong>About:</strong> Librarian passionate about education and community development.</p>
+      <div class="creator-box">
+        <h3>Campaign Creator</h3>
+        <div class="creator-box-content">
+          <img src="Images/profile5.jpg" class="creator-photo">
+          <div>
+            <p><strong>Name:</strong> Sofia Reyes</p>
+            <p><strong>Email:</strong> sofia.reyes@example.com</p>
+            <p><strong>About:</strong> Librarian passionate about education and community development.</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-
-</div>
-
 
   </div>
 </div>
 
-<footer>
-  ₱1Solution • All Rights Reserved.
-</footer>
+<footer>₱1Solution • All Rights Reserved.</footer>
 
 <div id='auth-modal' class='modal'>
   <div class='modal-content'>
@@ -372,7 +169,6 @@
 </div>
 
 <script>
-// Consolidated script for Laundry campaign — defensive, single init, per-campaign keys.
 (function(){
   const campaignID = 'library';
   const CAMPAIGN_KEY = `campaign-${campaignID}_raised`;
@@ -387,8 +183,8 @@
   if (logoClick) logoClick.onclick = () => { window.location.href = 'HOMEPAGE.html'; };
   if (browseLink) browseLink.onclick = () => { window.location.href = 'HOMEPAGE.html#featured'; };
 
-  let amountRaised = 3972 ;
-  let goalAmount = parseInt(localStorage.getItem(CAMPAIGN_GOAL_KEY)) || 10000;
+  let amountRaised = 0;
+  let goalAmount = parseInt(localStorage.getItem(CAMPAIGN_GOAL_KEY)) || 15000;
 
   const modal = document.getElementById('auth-modal');
   const donate = document.getElementById('donate-btn');
@@ -451,9 +247,7 @@
       accName.textContent = localStorage.getItem('userName') || '';
       accEmail.textContent = localStorage.getItem('userEmail') || '';
       if (sidebar) sidebar.classList.add('open');
-    } else {
-      if (modal) modal.style.display = 'flex';
-    }
+    } else { if (modal) modal.style.display = 'flex'; }
   });
 
   document.querySelectorAll('.close-sidebar').forEach(el => el.addEventListener('click', () => { if (sidebar) sidebar.classList.remove('open'); }));
@@ -495,25 +289,4 @@
   function updateGoal() {
     const label = document.getElementById('raised-label');
     if (label) label.textContent = `₱${amountRaised} raised of ₱${goalAmount} goal`;
-    if (fillEl) fillEl.style.width = Math.min(100, (amountRaised / goalAmount) * 100) + '%';
-    localStorage.setItem(CAMPAIGN_KEY, String(amountRaised));
-    localStorage.setItem(CAMPAIGN_GOAL_KEY, String(goalAmount));
-    localStorage.setItem('progress_' + campaignID, String(amountRaised));
-  }
-
-  (function init(){
-    let saved = JSON.parse(localStorage.getItem(`donations_${campaignID}`));
-    if (!saved || Object.keys(saved).length === 0) {
-      const filler = {"Vhener":5,"Jedidiah":10,"Iziah":25};
-      localStorage.setItem(`donations_${campaignID}`, JSON.stringify(filler));
-      saved = filler;
-    }
-    renderDonations(saved);
-    amountRaised = Object.values(saved).reduce((a, b) => a + b, 0);
-    updateGoal();
-  })();
-
-})();
-</script>
-</body>
-</html>
+    if (fillEl) fillEl.style
