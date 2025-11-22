@@ -289,6 +289,27 @@
   @media(max-width:900px){
     .layout{flex-direction:column;}
   }
+
+  .my-table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: separate;
+    border-spacing: 0 1px;
+    order-radius: 5px;
+    
+  }
+  .my-table th,
+  .my-table td {
+    border: 2px solid #2c5aa0;
+    border-radius: 12px;
+    padding: 8px;
+  }
+
+  .my-table th {
+
+    background:#2c5aa0 ;
+    color: white;
+  }
   
 </style>
 </head>
@@ -332,56 +353,92 @@
     <br>
     <br><h3>What Will We Do With the Funds? (₱15,000 Budget Plan)</h3>
 
+    <table class='my-table'>
+            <thead>
+              <tr>
+                <th><h3>Item</h3></th>
+                <th><h3> Cost </h3></th>
+              </tr>
+            </thead>
+            <tbody> 
+              <tr>
+                <td>Barbering Tools and Equipment</td>
+                <td>₱7,000</td>
+              </tr>
+
+              <tr>
+                <td>Professional hair clippers</td>
+                <td>₱2,500–₱3,000</td>
+              </tr> 
+
+              <tr>
+                <td>Backup/secondary clipper or trimmer</td>
+                <td>₱1,000–₱1,500</td>
+              </tr>  
+
+              <tr>
+                <td>Barber scissors and thinning shears</td>
+                <td>₱800</td>
+              </tr> 
+
+              <tr>
+                <td>Straight razor and blade packs</td>
+                <td>₱300</td>
+              </tr> 
+
+              <tr>
+                <td>Combs, brushes, spray bottles</td>
+                <td>₱300–₱500</td>
+              </tr> 
+                <td>Hair cape and apron</td>
+                <td>₱300–₱500</td>
+              </tr>
+
+              <tr>
+                <td>Supplies for Cleanliness and Hygiene</td>
+                <td>₱2,500</td>
+              </tr>
+              
+              <tr>
+                <td>Basic Setup for Shop Space</td>
+                <td>₱3,000</td>
+              </tr>   
+
+              <tr>
+                <td>Small table or shelf for tools</td>
+                <td>₱600–₱1,000</td>
+
+                <tr>
+                <td>Small table or shelf for tools</td>
+                <td>₱600–₱1,000</td>
+
+                <tr>
+                <td>Secondhand or affordable single barber chair</td>
+                <td>₱1,200–₱1,500</td>
+
+
+                <tr>
+                <td>Small table or shelf for tools</td>
+                <td>600–₱1,000</td>
+
+                <tr>
+                <td>Marketing and Promotion</td>
+                <td>₱1,500</td>
+
+                <tr>
+                <td>Facebook ads boost</td>
+                <td>₱300–₱500</td>
+
+                <tr>
+                <td>Emergency/Buffer Fund</td>
+                <td>₱1,000</td>
+              </tr>  
+            </tbody> 
+          </table>
+
     <br>With a modest fund of ₱15,000, the focus is on acquiring essential tools and creating a clean, functional space. Here's a realistic breakdown:
     <br>
-    <br>1. Barbering Tools and Equipment –<br> ₱7,000
     
-    Professional hair clippers<br> (₱2,500–₱3,000)
-
-    Backup/secondary clipper or trimmer<br> (₱1,000–₱1,500)
-
-    Barber scissors and thinning shears<br>(₱800)
-
-    Straight razor and blade packs<br> (₱300)
-
-    Combs, brushes, spray bottles <br>(₱300–₱500)
-
-    Hair cape and apron <br>(₱300–₱500)
-    <br>
-   <br>2. Supplies for Cleanliness and Hygiene –<br> ₱2,500
-    
-    Alcohol and disinfectants
-
-    Sterilizing jar
-
-    Towels
-
-    General cleaning materials
-    <br>
-    <br>3. Basic Setup for Shop Space –<br> ₱3,000
-    
-    Simple mirror <br>(₱500–₱800)
-
-    Small table or shelf for tools<br> (₱600–₱1,000)
-
-    Small table or shelf for tools<br> (₱600–₱1,000)
-    Secondhand or affordable single barber chair (₱1,200–₱1,500)
-    
-    Small table or shelf for tools<br> (₱600–₱1,000)
-    <br>
-    <br>4. Marketing and Promotion –<br> ₱1,500
-    
-    Printed posters or flyers
-
-    Facebook ads boost<br> (₱300–₱500)
-
-    Small signboard or banner
-    <br>
-    <br>5. Emergency/Buffer Fund –<br> ₱1,000
-    
-    For unexpected expenses, minor repairs, or additional supplies.
-    <br>
-    This budget allows for a simple but fully operational one-chair barbershop that can grow over time.
     <br>
     <br><h3>Where Will It Be Located?</h3>
     <br>
@@ -482,7 +539,7 @@
 
     // STATE
     let amountRaised = 3972 ;
-    let goalAmount = parseInt(localStorage.getItem(CAMPAIGN_GOAL_KEY)) || 10000;
+    let goalAmount = parseInt(localStorage.getItem(CAMPAIGN_GOAL_KEY)) || 15000;
 
     // ELEMENTS
     const modal = document.getElementById('auth-modal');
