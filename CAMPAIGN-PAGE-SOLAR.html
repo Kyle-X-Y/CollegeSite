@@ -6,61 +6,222 @@
 <title> Rice Retailing Center - ₱1Solution Campaign</title>
 
 <style>
-  *{margin:0;padding:0;box-sizing:border-box;}
-  body{font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;background:#f4f7fa;color:#333;line-height:1.6;}
-  header{background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.1);position:sticky;top:0;z-index:100;}
-  .header-content{max-width:1800px;margin:auto;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;}
-  nav ul{display:flex;gap:20px;list-style:none;}
-  nav a{text-decoration:none;color:#555;font-weight:500;cursor:pointer;}nav a:hover{color:#2c5aa0;}
-  .logo img{width:180px;cursor:pointer;}
+    header{
+    background:#fff;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+    position:sticky;
+    top:0;
+    z-index:100;
+  }
+  .header-content{
+    max-width:1800px;
+    margin:auto;
+    padding:15px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  nav ul{display:flex;
+    gap:20px;
+    list-style:none;
+  }
 
-  .layout{max-width:1800px;margin:30px auto;display:flex;gap:30px;}
+  nav a{
+    text-decoration:none;
+    color:#555;
+    font-weight:500;
+    cursor:pointer;
+  }
+
+  nav a:hover{color:#2c5aa0;}
+  .logo img{
+    width:180px;
+    cursor:pointer;
+  }
+
+  .layout{
+    max-width:1800px;
+    margin:30px auto;
+    display:flex;
+    gap:30px;
+  }
+
   .left-column{flex:2;}
-  .right-column{flex:1;background:#fff;padding:20px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,.1);height:fit-content;}
 
-  .campaign-img{width:100%;border-radius:8px;margin-bottom:15px;object-fit:cover;object-position:center;height:300px;}
-  .campaign-title{text-align:center;color:#2c5aa0;margin-bottom:10px;font-size:2em;}
+  .right-column{
+    flex:1;
+    background:#fff;
+    padding:20px;
+    border-radius:8px;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+    height:fit-content;
+  }
 
-  .progress-box{margin:10px 0;padding:10px;background:#f4f7fa;border-radius:6px;}
-  .progress-bar{background:#ddd;height:10px;border-radius:4px;overflow:hidden;}
-  .progress-fill{background:#4a90e2;height:100%;}
+  .campaign-img{
+    width:100%;
+    border-radius:8px;
+    margin-bottom:15px;
+    object-fit:cover;
+    object-position:center;
+    height:300px;
+  }
 
-  .coin-btn{width:110px;height:110px;background:url('Images/piso.jfif');background-size:cover;background-position:center;border:none;cursor:pointer;margin:auto;display:block;transition:transform .2s;}
-  .coin-btn:hover{transform:scale(1.1);} 
-  .coin-falling{animation:coinFall 1.5s ease-out;} 
-  @keyframes coinFall{0%{transform:translateY(0);opacity:1;}100%{transform:translateY(200px);opacity:0;}}
+  .campaign-title{
+    text-align:center;
+    color:#2c5aa0;
+    margin-bottom:10px;
+    font-size:2em;
+  }
 
-  .creator-box{background:#fff;border:3px solid #2c5aa0;border-radius:12px;padding:20px;margin-top:30px;display:block;width:100%;box-shadow:0 0 15px rgba(0,0,0,0.15);} 
-  .creator-box-content{display:flex;align-items:center;gap:15px;} 
-  .creator-photo{width:80px;height:80px;border-radius:50%;border:3px solid #2c5aa0;object-fit:cover;} 
+  .progress-box{
+    margin:10px 0;
+    padding:10px;
+    background:#f4f7fa;
+    border-radius:6px;
+  }
 
-  .story-box{background:#fff;padding:20px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,.1);margin-bottom:20px;}
-  .donation-list{margin-top:15px;} 
-  .donation-entry{background:#fff;padding:10px;border-radius:5px;display:flex;justify-content:space-between;margin-bottom:10px;box-shadow:0 1px 4px rgba(0,0,0,.05);} 
+  .progress-bar{
+    background:#ddd;
+    height:10px;
+    border-radius:4px;
+    overflow:hidden;
+  }
 
-  .modal{display:none;position:fixed;left:0;top:0;width:100%;height:100%;justify-content:center;align-items:center;background:rgba(0,0,0,.5);z-index:999;} 
-  .modal-content{background:#fff;border-radius:8px;width:90%;max-width:400px;padding:20px;position:relative;box-shadow:0 4px 20px rgba(0,0,0,0.2);} 
-  .close{position:absolute;right:15px;top:10px;font-size:24px;cursor:pointer;} 
-  .tab-buttons{display:flex;margin-bottom:20px;} 
-  .tab-btn{flex:1;padding:10px;border:none;background:#eee;font-weight:bold;cursor:pointer;} 
-  .tab-btn.active{background:#2c5aa0;color:#fff;} 
-  .tab-content{display:none;} 
-  .tab-content.active{display:block;} 
-  .form-group{margin-bottom:15px;} 
-  .form-group input{width:100%;padding:10px;border:1px solid:#ddd;border-radius:4px;} 
-  .modal-btn{width:100%;padding:12px;background:#2c5aa0;color:#fff;border:none;border-radius:4px;font-weight:bold;margin-top:10px;cursor:pointer;} 
+  .progress-fill{
+    background:#4a90e2;
+    height:100%;
+  }
 
-  .sidebar{position:fixed;top:0;right:-350px;width:300px;height:100%;background:#fff;box-shadow:-2px 0 10px rgba(0,0,0,0.2);padding:20px;transition:right .3s;z-index:2000;} 
-  .sidebar.open{right:0;} 
-  .close-sidebar{position:absolute;top:10px;right:15px;font-size:24px;cursor:pointer;} 
+  .coin-btn{
+    width:110px;
+    height:110px;
+    background:url('Images/piso.jfif');
+    background-size:cover;
+    background-position:center;
+    border:none;
+    cursor:pointer;
+    margin:auto;
+    display:block;
+    transition:transform .2s;
+  }
+  .coin-btn:hover{
+    transform:scale(1.1);
+  }
 
-  @media(max-width:900px){.layout{flex-direction:column;}}
+  .coin-falling {
+    animation: coinFall 1.5s ease-out;
+  }
 
-  .my-table{width:100%;margin-bottom:20px;border-collapse:separate;border-spacing:0 1px;} 
-  .my-table th,.my-table td{border:2px solid #2c5aa0;border-radius:12px;padding:8px;} 
-  .my-table th{background:#2c5aa0;color:white;} 
+  @keyframes coinFall {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(200px); opacity: 0; }
+  }
 
-  .footer{margin-top:50px;background:#2c5aa0;color:#fff;text-align:center;padding:20px;} 
+  .creator-box {
+  background: #ffffff;
+  border: 3px solid #2c5aa0;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 30px;
+  display: block !important;
+  width: 100% !important;
+  box-shadow: 0 0 15px rgba(0,0,0,0.15);
+  }
+
+  .creator-box-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .creator-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid #2c5aa0;
+    object-fit: cover;
+  }
+
+  .story-box{
+    background:#fff;
+    padding:20px;
+    border-radius:8px;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+    margin-bottom:20px;
+  }
+
+  .donation-list{margin-top:15px;}
+  .donation-entry{
+    background:#fff;padding:10px;
+    border-radius:5px;
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:10px;
+    box-shadow:0 1px 4px rgba(0,0,0,.05);
+  }
+
+  footer{
+    margin-top:50px;
+    background:#2c5aa0;
+    color:#fff;
+    text-align:center;
+    padding:20px;
+  }
+
+  .modal{
+    display:none;
+    position:fixed;
+    left:0;top:0;
+    width:100%;
+    height:100%;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,.5);
+    z-index:999;
+  }
+
+  .modal-content{
+    max-width:400px;
+    width:90%;
+    position:relative;
+    background: #fff;
+    border-radius: 8px;
+    padding: 18px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+  }
+  .modal-btn{
+    width:100%;
+    padding:12px;
+    background:#2c5aa0;
+    color:#fff;
+    border:none;
+    border-radius:4px;
+    font-weight:bold;
+    margin-top:10px;
+    cursor:pointer;
+  }
+
+  .close{position:absolute;
+    right:15px;top:10px;
+    font-size:24px;
+    cursor:pointer;
+  }
+
+  .my-table{
+   width:100%;
+   margin-bottom:20px;
+   border-collapse:separate;
+   border-spacing:0 1px;
+  } 
+  .my-table th,.my-table td{
+   border:2px solid #2c5aa0;
+   border-radius:12px;
+   padding:8px;
+  } 
+  .my-table th{
+   background:#2c5aa0;
+   color:white;
+  }
 </style>
 </head>
 
@@ -98,13 +259,34 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>Initial stock (3–4 rice sacks)</td><td>₱6,000</td></tr>
-          <tr><td>Weighing scale</td><td>₱1,200</td></tr>
-          <tr><td>Plastic containers for storage</td><td>₱1,000</td></tr>
-          <tr><td>Scoops and measuring tools</td><td>₱400</td></tr>
-          <tr><td>Store signage</td><td>₱800</td></tr>
-          <tr><td>Clean sacks and packaging</td><td>₱600</td></tr>
-          <tr><td><h3>Total</h3></td><td>₱10,000</td></tr>
+          <tr>
+           <td>Initial stock (3–4 rice sacks)</td>
+           <td>₱6,000</td>
+          </tr>
+          <tr>
+           <td>Weighing scale</td>
+           <td>₱1,200</td>
+          </tr>
+          <tr>
+           <td>Plastic containers for storage</td>
+           <td>₱1,000</td>
+          </tr>
+          <tr>
+           <td>Scoops and measuring tools</td>
+           <td>₱400</td>
+          </tr>
+          <tr>
+           <td>Store signage</td>
+           <td>₱800</td>
+          </tr>
+          <tr>
+           <td>Clean sacks and packaging</td>
+           <td>₱600</td>
+          </tr>
+          <tr>
+           <td><h3>Total</h3></td>
+           <td>₱10,000</td>
+          </tr>
         </tbody>
       </table>
       </p>
@@ -114,7 +296,7 @@
   <div class='right-column'>
     <h2 class='campaign-title'>Rice Retailing Center</h2>
     <div class='progress-box'>
-      <strong id='raised-label'>₱0 raised of ₱10000 goal</strong>
+      <strong id='raised-label'>₱0 raised of ₱15000 goal</strong>
       <div class='progress-bar'>
         <div class='progress-fill' id='fill'></div>
       </div>
@@ -150,7 +332,7 @@
 </div>
 
 <footer>
- <div class="footer"> ₱1Solution • All Rights Reserved.</div>
+ ₱1Solution • All Rights Reserved.
 <footer>
 
 <!-- Modal -->
@@ -187,7 +369,7 @@
 <script>
 // Consolidated script for Laundry campaign — defensive, single init, per-campaign keys.
   (function(){
-    const campaignID = 'chicken';
+    const campaignID = 'solar';
     const CAMPAIGN_KEY = `campaign-${campaignID}_raised`;
     const CAMPAIGN_GOAL_KEY = `campaign-${campaignID}_goal`;
 
@@ -202,7 +384,7 @@
     if (browseLink) browseLink.onclick = () => { window.location.href = 'HOMEPAGE.html#featured'; };
 
     // STATE
-    let amountRaised = 3972 ;
+    let amountRaised = 4291 ;
     let goalAmount = parseInt(localStorage.getItem(CAMPAIGN_GOAL_KEY)) || 15000;
 
     // ELEMENTS
