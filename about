@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us - \u20b11Solution - Crowdfunding for Filipino Startups</title>
+  <title>About Us - p1Solution - Crowdfunding for Filipino Startups</title>
   <style>
     /* Reset and base styles */
     * {
@@ -451,13 +451,12 @@
     <div class="header-content">
       <a href="HOMEPAGE.html" class="logo-link">
         <div class="logo">
-          <img src="Images/logo.jfif" alt="Pisolution logo">
+          <img src="Images/logo.jfif" alt="P1solutionlogo">
         </div>
       </a>
       <nav>
         <ul>
           <li><a href="HOMEPAGE.html">Home</a></li>
-          <li><a href="ABOUT-US.html" class="active">About Us</a></li>/*remove*/
           <li><a href="HOMEPAGE.html#featured">Browse Campaigns</a></li>
           <li><a href="#" id="auth-link">Login / Register</a></li>
         </ul>
@@ -479,17 +478,17 @@
       <h2>Our Mission & Vision</h2>
       <div class="mission-grid">
         <div class="mission-card">
-          <div class="icon">\ud83c\udfaf</div>
+          <div class="icon"></div>
           <h3>Our Mission</h3>
           <p>To democratize funding for Filipino entrepreneurs by creating an accessible platform where small contributions can make big dreams possible.</p>
         </div>
         <div class="mission-card">
-          <div class="icon">\ud83c\udf1f</div>
+          <div class="icon"></div>
           <h3>Our Vision</h3>
           <p>To become the leading crowdfunding platform in the Philippines, transforming countless innovative ideas into successful businesses that strengthen our communities.</p>
         </div>
         <div class="mission-card">
-          <div class="icon">\ud83d\udca1</div>
+          <div class="icon"></div>
           <h3>Our Impact</h3>
           <p>Connecting passionate supporters with promising startups, creating opportunities for economic growth and community development across the Philippines.</p>
         </div>
@@ -500,15 +499,15 @@
   <!-- Story Section -->
   <section class="story-section">
     <div class="story-content">
-      <h2>The \u20b11Solution Story</h2>
+      <h2>The P1Solution Story</h2>
       <div class="story-text">
         <p>Born from a simple observation: many brilliant Filipino ideas never see the light of day due to lack of funding. We saw talented entrepreneurs with innovative solutions, community-changing projects, and life-altering inventions that were stuck in the concept phase.</p>
         <br>
-        <p>Our founders, themselves products of humble beginnings, understood that not everyone has access to traditional funding sources. They envisioned a platform where the power of community could bridge this gap \u2013 where one person's \u20b11 contribution, combined with thousands of others, could fuel the next big Filipino success story.</p>
+        <p>Our founders, themselves products of humble beginnings, understood that not everyone has access to traditional funding sources. They envisioned a platform where the power of community could bridge this gap where one person's contribution, combined with thousands of others, could fuel the next big Filipino success story.</p>
         <br>
-        <p>Today, \u20b11Solution stands as that bridge \u2013 a testament to Filipino bayanihan spirit translated into the digital age. We've helped launch water refilling stations in underserved barangays, supported local bakers in expanding their businesses, and enabled countless entrepreneurs to turn their dreams into reality.</p>
+        <p>Today, p1Solution stands as that bridge a testament to Filipino bayanihan spirit translated into the digital age. We've helped launch water refilling stations in underserved barangays, supported local bakers in expanding their businesses, and enabled countless entrepreneurs to turn their dreams into reality.</p>
         <br>
-        <p>Every campaign on our platform represents more than just a business venture \u2013 it's a story of hope, perseverance, and community support. It's proof that when Filipinos come together, there's no limit to what we can achieve.</p>
+        <p>Every campaign on our platform represents more than just a business venture it's a story of hope, perseverance, and community support. It's proof that when Filipinos come together, there's no limit to what we can achieve.</p>
       </div>
     </div>
   </section>
@@ -517,71 +516,53 @@
   <section class="team-section">
     <div class="team-content">
       <h2>Meet Our Team</h2>
-      <p class="team-subtitle">The passionate individuals behind \u20b11Solution</p>
+      <p class="team-subtitle">The passionate individuals behind p1Solution</p>
       
       <div class="team-grid">
         <!-- Team Member 1 -->
         <div class="team-member">
           <div class="member-image">
-            <img src="https://picsum.photos/seed/founder-ceo/400/400.jpg" alt="Founder & CEO">/*change*/
+            <img src=""alt="Founder & CEO">
           </div>
-          <h3 class="member-name">[Your Name]</h3>/*change*/
-          <p class="member-role">Founder & CEO</p>/*change*/
+          <h3 class="member-name">Kyle Salatic</h3>
+          <p class="member-role">Founder & CEO</p>
           <p class="member-bio">Visionary leader with a passion for empowering Filipino entrepreneurs and building sustainable communities through innovative financing solutions.</p>
           <div class="member-social">
-            <a href="#" class="social-link" title="LinkedIn">in</a>/*change*/
-            <a href="#" class="social-link" title="Email">@</a>/*change*/
-            <a href="#" class="social-link" title="Twitter">\ud835\udd4f</a>/*remove*/
+            <a href="#" class="social-link" title="salatickyle@gmail.com">@</a>
+            <a href="#" class="social-link" title="https://www.facebook.com/kyle.salatic.3#">f</a>
           </div>
         </div>
 
         <!-- Team Member 2 -->
         <div class="team-member">
           <div class="member-image">
-            <img src="https://picsum.photos/seed/cofounder-coo/400/400.jpg" alt="Co-founder & COO">/*change*/
+            <img src="" alt="Member">
           </div>
-          <h3 class="member-name">[Collaborator 2]</h3>/*change*/
-          <p class="member-role">Co-founder & COO</p>/*change*/
+          <h3 class="member-name">Vhener Lapating</h3>
+          <p class="member-role">Member</p>
           <p class="member-bio">Operations expert dedicated to ensuring smooth platform functionality and exceptional user experience for all campaign creators and supporters.</p>
           <div class="member-social">
-            <a href="#" class="social-link" title="LinkedIn">in</a>/*change*/
-            <a href="#" class="social-link" title="Email">@</a>/*change*/
-            <a href="#" class="social-link" title="Twitter">\ud835\udd4f</a>/*remove*/
+            <a href="#" class="social-link" title="lapatingvhener@gmail.com">@</a>
+            <a href="#" class="social-link" title="https://www.facebook.com/vhener.lapating.7#">f</a>
           </div>
         </div>
 
         <!-- Team Member 3 -->
         <div class="team-member">
           <div class="member-image">
-            <img src="https://picsum.photos/seed/tech-lead/400/400.jpg" alt="Tech Lead">
+            <img src="" alt="Member">
           </div>
-          <h3 class="member-name">[Collaborator 3]</h3>
-          <p class="member-role">Tech Lead</p>
+          <h3 class="member-name">Jedidiah Peniel A. Bainan</h3>
+          <p class="member-role">Member</p>
           <p class="member-bio">Technology innovator focused on building secure, scalable, and user-friendly crowdfunding solutions that make participation accessible to everyone.</p>
           <div class="member-social">
-            <a href="#" class="social-link" title="LinkedIn">in</a>
-            <a href="#" class="social-link" title="Email">@</a>
-            <a href="#" class="social-link" title="Twitter">\ud835\udd4f</a>
+            <a href="#" class="social-link" title="jedidiahawni@gmai.com">@</a>
+            <a href="#" class="social-link" title="https://www.facebook.com/jedidiah.awini.2025#">f</a>
           </div>
         </div>
 
-        <!-- Team Member 4 -->
-        <div class="team-member">
-          <div class="member-image">
-            <img src="https://picsum.photos/seed/marketing-director/400/400.jpg" alt="Marketing Director">
-          </div>
-          <h3 class="member-name">[Collaborator 4]</h3>
-          <p class="member-role">Marketing Director</p>
-          <p class="member-bio">Creative strategist passionate about telling Filipino success stories and connecting campaigns with communities that believe in their vision.</p>
-          <div class="member-social">
-            <a href="#" class="social-link" title="LinkedIn">in</a>
-            <a href="#" class="social-link" title="Email">@</a>
-            <a href="#" class="social-link" title="Twitter">\ud835\udd4f</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+       
+ 
 
   <!-- Values Section -->
   <section class="values-section">
@@ -589,22 +570,22 @@
       <h2>Our Core Values</h2>
       <div class="values-grid">
         <div class="value-item">
-          <div class="value-icon">\ud83e\udd1d</div>
+          <div class="value-icon"></div>
           <h3 class="value-title">Community First</h3>
           <p class="value-description">We believe in the power of collective action and community support.</p>
         </div>
         <div class="value-item">
-          <div class="value-icon">\ud83d\udd12</div>
+          <div class="value-icon"></div>
           <h3 class="value-title">Trust & Security</h3>
           <p class="value-description">Ensuring safe transactions and transparent processes for all users.</p>
         </div>
         <div class="value-item">
-          <div class="value-icon">\ud83c\udf31</div>
+          <div class="value-icon"></div>
           <h3 class="value-title">Growth Mindset</h3>
           <p class="value-description">Nurturing ideas and helping them evolve into successful ventures.</p>
         </div>
         <div class="value-item">
-          <div class="value-icon">\ud83c\uddf5\ud83c\udded</div>
+          <div class="value-icon"></div>
           <h3 class="value-title">Filipino Pride</h3>
           <p class="value-description">Celebrating and supporting Filipino innovation and entrepreneurship.</p>
         </div>
@@ -617,16 +598,16 @@
     <div class="contact-content">
       <h2>Get in Touch</h2>
       <div class="contact-info">
-        <p>\ud83d\udce7 Email: info@p1solution.com</p>/*change*/
-        <p>\ud83d\udcf1 Phone: (02) 123-4567</p>/*change*/
-        <p>\ud83d\udccd Address: Makati City, Metro Manila, Philippines</p>/*change*/
+        <p>Email: p1solution@gmail.com</p>
+        <p>Phone: 09635926851</p>
+        <p>Address: Baguio City, Bakakeng, Philippines</p>
       </div>
       <a href="mailto:info@p1solution.com" class="cta-button">Contact Us Today</a>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 \u20b11Solution. All rights reserved.</p>
+    <p>&copy; 2025 P1Solution. All rights reserved.</p>
     <p>
       <a href="HOMEPAGE.html">Home</a> |
       <a href="ABOUT-US.html">About Us</a> |
