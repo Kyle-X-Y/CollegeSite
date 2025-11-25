@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Campaign - ₱1Solution</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box
+    }
+    body
+    {font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background:#f4f7fa;
+      color:#333;
+      line-height:1.6
+    }
+
+    header{background:#fff;
+      box-shadow:0 2px 10px rgba(0,0,0,.1);
+      position:sticky;
+      top:0;
+      z-index:100
+    }
+    .header-content{
+      max-width:1800px;
+      margin:auto;
+      padding:15px 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center
+    }
+    nav ul{
+      display:flex;
+      gap:20px;
+      list-style:none
+    }
+    nav a{
+      text-decoration:none;
+      color:#555;
+      font-weight:500;
+      cursor:pointer
+    }
+    nav a:hover{color:#2c5aa0}
+    .logo img{
+      width:180px;
+      cursor:pointer
+    }
+
+    .layout{
+      max-width:1800px;
+      margin:30px auto;
+      display:flex;
+      gap:30px
+    }
+    .left-column{flex:2}
+    .right-column{
+      flex:1;
+      background:#fff;
+      padding:20px;
+      border-radius:8px;
+      box-shadow:0 2px 10px rgba(0,0,0,.1);
+      height:fit-content
+    }
+
+    .campaign-img{
+      width:100%;
+      border-radius:8px;
+      margin-bottom:15px;
+      object-fit:cover;
+      object-position:center;
+      height:300px
+    }
+
+    .story-box{
+      background:#fff;
+      padding:20px;
+      border-radius:8px;
+      box-shadow:0 2px 10px rgba(0,0,0,.1);
+      margin-bottom:20px
+    }
+    .story-box h2{
+      color:#2c5aa0;
+      margin-bottom:15px
+    }
+
+    .form-field{
+      margin-bottom:20px
+    }
+    label{
+      font-weight:bold;
+      display:block;
+      margin-bottom:6px
+    }
+    input,textarea,select{
+      width:100%;
+      padding:10px;
+      border:1px solid #ccc;
+      border-radius:6px}
+    textarea{
+      min-height:120px
+    }
+
+    .my-table{
+      width:100%;
+      margin-top:15px;
+      border-collapse:separate;
+      border-spacing:0 5px
+    }
+    .my-table th,
+    .my-table td{
+      border:2px solid #2c5aa0;
+      border-radius:8px;
+      padding:8px;
+      background:#fff
+    }
+    .my-table th{
+      background:#2c5aa0;
+      color:#fff
+    }
+
+    .remove-row{
+      background:red;
+      color:#fff;
+      border:none;
+      padding:6px 10px;
+      border-radius:6px;
+      cursor:pointer
+    }
+    #add-row{
+      background:#2c5aa0;
+      color:#fff;
+      border:none;
+      padding:8px 12px;
+      border-radius:6px;
+      cursor:pointer;
+      margin-bottom:10px
+    }
+
+    .submit-btn{
+      background:#2c5aa0;
+      color:#fff;
+      border:none;
+      padding:12px 16px;
+      border-radius:6px;
+      width:100%;
+      cursor:pointer;
+      font-size:1.1em;
+      font-weight:600;
+      margin-top:20px
+    }
+
+    .modal{
+    display:none;
+    position:fixed;
+    left:0;top:0;
+    width:100%;
+    height:100%;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,.5);
+    z-index:999;
+  }
+
+  .modal-content {
+    background: #fff;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .modal-btn{
+    width:100%;
+    padding:12px;
+    background:#2c5aa0;
+    color:#fff;
+    border:none;
+    border-radius:4px;
+    font-weight:bold;
+    margin-top:10px;
+    cursor:pointer;
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: -350px;
+    width: 300px;
+    height: 100%;
+    background: #fff;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+    padding: 20px;
+    transition: right 0.3s;
+    z-index: 2000;
+  }
+  .sidebar.open {right: 0;}
+  .close-sidebar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size:24px;
+    cursor:pointer;
+  }
+  footer{
+    margin-top:50px;
+    background:#2c5aa0;
+    color:#fff;
+    text-align:center;
+    padding:20px;
+  }
+
+  </style>
+</head>
+<body>
+    <header>
+      <div class='header-content'>
+        <div class='logo'>
+          <a href="../HOMEPAGE.html">
+            <img src='../Images/logo.jfif' id='logo-click'>
+          </a>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="../HOMEPAGE.html">Home</a></li>
+            <li><a href="../HOMEPAGE.html#featured">Browse Campaigns</a></li>
+            <li><a id='auth-link'>Login / Register</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+     <!-- Account Sidebar (homepage) -->
+      <div id="account-sidebar" class="sidebar">
+        <span class="close-sidebar">&times;</span>
+        <h2>Account Information</h2>
+        <p><strong>Name:</strong> <span id="acc-name"></span></p>
+        <p><strong>Email:</strong> <span id="acc-email"></span></p>
+        <button id="logout-btn" class="modal-btn" style="background:red;">Logout</button>
+      </div>
+
+    <div class="layout">
+      <div class="left-column">
+
+        <img src="../Images/placeholder.jpg" class="campaign-img" id="preview-img">      
+        
+        <div class="form-field">
+            <label>Upload Campaign Image</label>
+            <input type="file" id="imageUpload" accept="image/*" onchange="uploadImage(event)">
+
+            <label>Image URL</label>
+            <input type="text" id="imageUrl" placeholder="image.com" oninput="updateImage()">
+          </div>
+
+        <div class="story-box">
+          <h2>Story</h2>
+
+          <div class="form-field">
+            <label>Campaign Title</label>
+            <input type="text" id="title" placeholder="e.g. Fried Chicken Cart" required>
+          </div>
+
+          <div class="form-field">
+            <label>Story Description</label>
+            <textarea id="description" placeholder="Write the story here..." required></textarea>
+          </div>
+
+
+
+          <h3 style="margin-top:25px">Where the Funds Will Go</h3>
+          <button id="add-row">+ Add Item</button>
+
+          <table class="my-table" id="budget-table">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Cost (₱)</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input class="b-item" type="text" placeholder="Item description" required></td>
+                <td><input class="b-cost" type="number" value="0" required></td>
+                <td><button class="remove-row">X</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="right-column">
+        <h2 style="color:#2c5aa0;margin-bottom:15px">Campaign Creator</h2>
+
+        <div class="form-field">
+          <label>Full Name</label>
+          <input type="text" id="author-name" required>
+        </div>
+
+        <div class="form-field">
+          <label>Gmail Address</label>
+          <input type="email" id="author-email" required>
+        </div>
+
+        <div class="form-field">
+          <label>Contact Number</label>
+          <input type="text" id="author-contact" required>
+        </div>
+
+        <div class="form-field">
+          <label>Address</label>
+          <input type="text" id="author-address" required>
+        </div>
+
+        <div class="form-field">
+          <label>Goal Amount (₱)</label>
+          <input type="number" id="goal" required>
+        </div>
+
+        <div class="form-field">
+          <label>Days Left</label>
+          <input type="number" id="days" required>
+        </div>
+
+        <button class="submit-btn" id="create-btn">Create Campaign</button>
+      </div>
+    </div>
+</body>
+
+<footer>
+  <div> ₱1Solution • All Rights Reserved.</div>
+</footer>  
+
+
+<!-- Modal -->
+<div id='auth-modal' class='modal'>
+  <div class='modal-content'>
+    <span class='close'>&times;</span>
+    <div class='tab-buttons'>
+      <button class='tab-btn active' onclick='showTab("login")'>Login</button>
+      <button class='tab-btn' onclick='showTab("register")'>Register</button>
+    </div>
+    <div id='login' class='tab-content active'>
+      <div class='form-group'><input type='email' id='login-email' placeholder='Email'></div>
+      <div class='form-group'><input type='password' placeholder='Password'></div>
+      <button class='modal-btn' id='login-submit'>Login</button>
+    </div>
+    <div id='register' class='tab-content'>
+      <div class='form-group'><input type='text' id='register-name' placeholder='Full Name'></div>
+      <div class='form-group'><input type='email' id='register-email' placeholder='Email'></div>
+      <div class='form-group'><input type='password' placeholder='Password'></div>
+      <button class='modal-btn' id='register-submit'>Register</button>
+    </div>
+  </div>
+</div>
+
+<!-- SIDEBAR -->
+<div id='account-sidebar' class='sidebar'>
+  <span class='close-sidebar'>&times;</span>
+  <h2>Account Information</h2>
+  <p><strong>Name:</strong> <span id='acc-name'></span></p>
+  <p><strong>Email:</strong> <span id='acc-email'></span></p>
+  <button id='logout-btn' class='modal-btn' style='background:red;'>Logout</button>
+</div>  
+<script>
+
+      (function () {
+  // Defensive helpers
+  const modal = document.getElementById('auth-modal');
+  const closeBtn = document.querySelector('.close');
+  const authLink = document.getElementById('auth-link');
+  const sidebar = document.getElementById('account-sidebar');
+  const accName = document.getElementById('acc-name');
+  const accEmail = document.getElementById('acc-email');
+
+      // Open modal for all donate buttons (supports multiple buttons)
+      document.querySelectorAll('.donate-btn').forEach(btn => {
+        btn.addEventListener('click', function (ev) {
+          ev.preventDefault();
+          if (modal) modal.style.display = 'flex';
+        });
+      });
+
+      // Close modal handlers
+      if (closeBtn) closeBtn.addEventListener('click', () => { if (modal) modal.style.display = 'none'; });
+      window.addEventListener('click', (ev) => { if (modal && ev.target === modal) modal.style.display = 'none'; });
+
+      // Account / Sidebar wiring
+      function updateNav() {
+        if (!authLink) return;
+        authLink.textContent = localStorage.getItem('userEmail') ? 'My Account' : 'Login / Register';
+      }
+      updateNav();
+
+      if (authLink) authLink.addEventListener('click', (ev) => {
+        ev.preventDefault();
+        if (localStorage.getItem('userEmail')) {
+          // populate and open sidebar
+          if (accName) accName.textContent = localStorage.getItem('userName') || '';
+          if (accEmail) accEmail.textContent = localStorage.getItem('userEmail') || '';
+          if (sidebar) sidebar.classList.add('open');
+        } else {
+          if (modal) modal.style.display = 'flex';
+        }
+      });
+
+      document.querySelectorAll('.close-sidebar').forEach(el => el.addEventListener('click', () => { if (sidebar) sidebar.classList.remove('open'); }));
+      const logoutBtn = document.getElementById('logout-btn');
+      if (logoutBtn) logoutBtn.addEventListener('click', () => {
+        localStorage.removeItem('userName');
+        localStorage.removeItem('userEmail');
+        if (sidebar) sidebar.classList.remove('open');
+        updateNav();
+      });
+
+    function updateImage(){
+      document.getElementById('preview-img').src = document.getElementById('imageUrl').value || 'Images/default-campaign.jpg';
+    }
+
+    const addRowBtn = document.getElementById('add-row');
+    const tableBody = document.querySelector('#budget-table tbody');
+    addRowBtn.onclick = ()=>{
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td><input class="b-item" type="text" required></td>
+        <td><input class="b-cost" type="number" value="0" required></td>
+        <td><button class="remove-row">X</button></td>`;
+      tableBody.appendChild(tr);
+      tr.querySelector('.remove-row').onclick = ()=> tr.remove();
+    };
+
+    document.querySelectorAll('.remove-row').forEach(btn=>btn.onclick=()=>btn.closest('tr').remove());
+
+    const form = document.getElementById("create-form");
+    const successMsg = document.getElementById("successMsg");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      let list = JSON.parse(localStorage.getItem("campaigns_custom") || "[]");
+
+      const title = document.getElementById("title").value.trim();
+      const safeTitle = title.replace(/[^a-zA-Z0-9]+/g, "-");
+
+      const filename = `CAMPAIGN-${safeTitle}.html`;
+
+      const newCampaign = {
+        id: safeTitle,
+        title: title,
+        description: document.getElementById("description").value,
+        goal: Number(document.getElementById("goal").value),
+        daysLeft: Number(document.getElementById("days").value),
+        image: document.getElementById("image").value,
+        raised: 0,
+        link: filename
+      };
+
+      list.push(newCampaign);
+      localStorage.setItem("campaigns_custom", JSON.stringify(list));
+
+      const campaignHTML = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <title>${title}</title>
+    <meta charset='UTF-8'>
+    </head>
+    <body>
+    <h1>${title}</h1>
+    <img src='${newCampaign.image}' style='max-width:400px;'>
+    <p>${newCampaign.description}</p>
+    <p>₱0 raised of ₱${newCampaign.goal}</p>
+    <p>${newCampaign.daysLeft} days left</p>
+    </body>
+    </html>`;
+
+      const blob = new Blob([campaignHTML], { type: "text/html" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = filename;
+      a.click();
+
+      successMsg.style.display = "block";
+      form.reset();
+    });
+</script>
+
+</body>
+</html>
