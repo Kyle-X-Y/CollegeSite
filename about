@@ -1,0 +1,681 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - \u20b11Solution - Crowdfunding for Filipino Startups</title>
+  <style>
+    /* Reset and base styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f7fa;
+      color: #333;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header with Navigation */
+    header {
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      max-width: 1800px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      flex-shrink: 0;
+      margin-right: auto;
+    }
+
+    .logo img {
+      width: 200px;
+      height: auto;
+      border-radius: 0%;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #555;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #2c5aa0;
+    }
+
+    nav a.active {
+      color: #2c5aa0;
+      font-weight: bold;
+    }
+
+    /* About Hero Section */
+    .about-hero {
+      background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .about-hero h1 {
+      font-size: 3.5em;
+      margin-bottom: 20px;
+      animation: fadeInUp 0.8s ease;
+    }
+
+    .about-hero p {
+      font-size: 1.4em;
+      max-width: 800px;
+      margin: 0 auto;
+      animation: fadeInUp 0.8s ease 0.2s both;
+    }
+
+    /* Mission Section */
+    .mission-section {
+      padding: 60px 20px;
+      background: #fff;
+    }
+
+    .mission-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .mission-content h2 {
+      font-size: 2.5em;
+      color: #2c5aa0;
+      margin-bottom: 30px;
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .mission-card {
+      padding: 30px;
+      border-radius: 10px;
+      background: #f8f9fa;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .mission-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .mission-card .icon {
+      font-size: 3em;
+      margin-bottom: 20px;
+      color: #4a90e2;
+    }
+
+    .mission-card h3 {
+      font-size: 1.8em;
+      color: #2c5aa0;
+      margin-bottom: 15px;
+    }
+
+    /* Story Section */
+    .story-section {
+      padding: 60px 20px;
+      background: #f8f9fa;
+    }
+
+    .story-content {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .story-content h2 {
+      font-size: 2.5em;
+      color: #2c5aa0;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .story-text {
+      font-size: 1.2em;
+      line-height: 1.8;
+      color: #555;
+      text-align: justify;
+    }
+
+    /* Team Section */
+    .team-section {
+      padding: 60px 20px;
+      background: #fff;
+    }
+
+    .team-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .team-content h2 {
+      font-size: 2.5em;
+      color: #2c5aa0;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .team-subtitle {
+      text-align: center;
+      font-size: 1.2em;
+      color: #666;
+      margin-bottom: 50px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .team-member {
+      text-align: center;
+      padding: 30px 20px;
+      border-radius: 15px;
+      background: #fff;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .team-member:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .member-image {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      overflow: hidden;
+      border: 4px solid #4a90e2;
+      box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+    }
+
+    .member-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .team-member:hover .member-image img {
+      transform: scale(1.05);
+    }
+
+    .member-name {
+      font-size: 1.4em;
+      font-weight: bold;
+      color: #2c5aa0;
+      margin-bottom: 8px;
+    }
+
+    .member-role {
+      font-size: 1.1em;
+      color: #4a90e2;
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+
+    .member-bio {
+      font-size: 0.95em;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .member-social {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .social-link {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background: #f0f4f8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: #4a90e2;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: #4a90e2;
+      color: #fff;
+    }
+
+    /* Values Section */
+    .values-section {
+      padding: 60px 20px;
+      background: #f8f9fa;
+    }
+
+    .values-content {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .values-content h2 {
+      font-size: 2.5em;
+      color: #2c5aa0;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+    }
+
+    .value-item {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .value-icon {
+      font-size: 2.5em;
+      color: #4a90e2;
+      margin-bottom: 15px;
+    }
+
+    .value-title {
+      font-size: 1.3em;
+      font-weight: bold;
+      color: #2c5aa0;
+      margin-bottom: 10px;
+    }
+
+    .value-description {
+      color: #666;
+      font-size: 0.95em;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      padding: 60px 20px;
+      background: #2c5aa0;
+      color: #fff;
+      text-align: center;
+    }
+
+    .contact-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .contact-content h2 {
+      font-size: 2.5em;
+      margin-bottom: 30px;
+    }
+
+    .contact-info {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+
+    .contact-info p {
+      margin-bottom: 15px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 15px 40px;
+      background: #fff;
+      color: #2c5aa0;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 1.1em;
+      transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background: #4a90e2;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer {
+      background: #1e3a5f;
+      color: #fff;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    footer p {
+      margin-bottom: 15px;
+    }
+
+    footer a {
+      color: #d7e9ff;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .about-hero h1 {
+        font-size: 2.5em;
+      }
+
+      .about-hero p {
+        font-size: 1.2em;
+      }
+
+      .mission-grid,
+      .team-grid,
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .team-member {
+        padding: 20px 15px;
+      }
+
+      .member-image {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <a href="HOMEPAGE.html" class="logo-link">
+        <div class="logo">
+          <img src="Images/logo.jfif" alt="Pisolution logo">
+        </div>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="HOMEPAGE.html">Home</a></li>
+          <li><a href="ABOUT-US.html" class="active">About Us</a></li>
+          <li><a href="HOMEPAGE.html#featured">Browse Campaigns</a></li>
+          <li><a href="#" id="auth-link">Login / Register</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- About Hero Section -->
+  <section class="about-hero">
+    <div class="hero-content">
+      <h1>Empowering Filipino Dreams</h1>
+      <p>Together, we're building a community where every peso counts and every Filipino startup has the opportunity to thrive.</p>
+    </div>
+  </section>
+
+  <!-- Mission & Vision Section -->
+  <section class="mission-section">
+    <div class="mission-content">
+      <h2>Our Mission & Vision</h2>
+      <div class="mission-grid">
+        <div class="mission-card">
+          <div class="icon">\ud83c\udfaf</div>
+          <h3>Our Mission</h3>
+          <p>To democratize funding for Filipino entrepreneurs by creating an accessible platform where small contributions can make big dreams possible.</p>
+        </div>
+        <div class="mission-card">
+          <div class="icon">\ud83c\udf1f</div>
+          <h3>Our Vision</h3>
+          <p>To become the leading crowdfunding platform in the Philippines, transforming countless innovative ideas into successful businesses that strengthen our communities.</p>
+        </div>
+        <div class="mission-card">
+          <div class="icon">\ud83d\udca1</div>
+          <h3>Our Impact</h3>
+          <p>Connecting passionate supporters with promising startups, creating opportunities for economic growth and community development across the Philippines.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story Section -->
+  <section class="story-section">
+    <div class="story-content">
+      <h2>The \u20b11Solution Story</h2>
+      <div class="story-text">
+        <p>Born from a simple observation: many brilliant Filipino ideas never see the light of day due to lack of funding. We saw talented entrepreneurs with innovative solutions, community-changing projects, and life-altering inventions that were stuck in the concept phase.</p>
+        <br>
+        <p>Our founders, themselves products of humble beginnings, understood that not everyone has access to traditional funding sources. They envisioned a platform where the power of community could bridge this gap \u2013 where one person's \u20b11 contribution, combined with thousands of others, could fuel the next big Filipino success story.</p>
+        <br>
+        <p>Today, \u20b11Solution stands as that bridge \u2013 a testament to Filipino bayanihan spirit translated into the digital age. We've helped launch water refilling stations in underserved barangays, supported local bakers in expanding their businesses, and enabled countless entrepreneurs to turn their dreams into reality.</p>
+        <br>
+        <p>Every campaign on our platform represents more than just a business venture \u2013 it's a story of hope, perseverance, and community support. It's proof that when Filipinos come together, there's no limit to what we can achieve.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-section">
+    <div class="team-content">
+      <h2>Meet Our Team</h2>
+      <p class="team-subtitle">The passionate individuals behind \u20b11Solution</p>
+      
+      <div class="team-grid">
+        <!-- Team Member 1 -->
+        <div class="team-member">
+          <div class="member-image">
+            <img src="https://picsum.photos/seed/founder-ceo/400/400.jpg" alt="Founder & CEO">
+          </div>
+          <h3 class="member-name">[Your Name]</h3>
+          <p class="member-role">Founder & CEO</p>
+          <p class="member-bio">Visionary leader with a passion for empowering Filipino entrepreneurs and building sustainable communities through innovative financing solutions.</p>
+          <div class="member-social">
+            <a href="#" class="social-link" title="LinkedIn">in</a>
+            <a href="#" class="social-link" title="Email">@</a>
+            <a href="#" class="social-link" title="Twitter">\ud835\udd4f</a>
+          </div>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="team-member">
+          <div class="member-image">
+            <img src="https://picsum.photos/seed/cofounder-coo/400/400.jpg" alt="Co-founder & COO">
+          </div>
+          <h3 class="member-name">[Collaborator 2]</h3>
+          <p class="member-role">Co-founder & COO</p>
+          <p class="member-bio">Operations expert dedicated to ensuring smooth platform functionality and exceptional user experience for all campaign creators and supporters.</p>
+          <div class="member-social">
+            <a href="#" class="social-link" title="LinkedIn">in</a>
+            <a href="#" class="social-link" title="Email">@</a>
+            <a href="#" class="social-link" title="Twitter">\ud835\udd4f</a>
+          </div>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div class="team-member">
+          <div class="member-image">
+            <img src="https://picsum.photos/seed/tech-lead/400/400.jpg" alt="Tech Lead">
+          </div>
+          <h3 class="member-name">[Collaborator 3]</h3>
+          <p class="member-role">Tech Lead</p>
+          <p class="member-bio">Technology innovator focused on building secure, scalable, and user-friendly crowdfunding solutions that make participation accessible to everyone.</p>
+          <div class="member-social">
+            <a href="#" class="social-link" title="LinkedIn">in</a>
+            <a href="#" class="social-link" title="Email">@</a>
+            <a href="#" class="social-link" title="Twitter">\ud835\udd4f</a>
+          </div>
+        </div>
+
+        <!-- Team Member 4 -->
+        <div class="team-member">
+          <div class="member-image">
+            <img src="https://picsum.photos/seed/marketing-director/400/400.jpg" alt="Marketing Director">
+          </div>
+          <h3 class="member-name">[Collaborator 4]</h3>
+          <p class="member-role">Marketing Director</p>
+          <p class="member-bio">Creative strategist passionate about telling Filipino success stories and connecting campaigns with communities that believe in their vision.</p>
+          <div class="member-social">
+            <a href="#" class="social-link" title="LinkedIn">in</a>
+            <a href="#" class="social-link" title="Email">@</a>
+            <a href="#" class="social-link" title="Twitter">\ud835\udd4f</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="values-section">
+    <div class="values-content">
+      <h2>Our Core Values</h2>
+      <div class="values-grid">
+        <div class="value-item">
+          <div class="value-icon">\ud83e\udd1d</div>
+          <h3 class="value-title">Community First</h3>
+          <p class="value-description">We believe in the power of collective action and community support.</p>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">\ud83d\udd12</div>
+          <h3 class="value-title">Trust & Security</h3>
+          <p class="value-description">Ensuring safe transactions and transparent processes for all users.</p>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">\ud83c\udf31</div>
+          <h3 class="value-title">Growth Mindset</h3>
+          <p class="value-description">Nurturing ideas and helping them evolve into successful ventures.</p>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">\ud83c\uddf5\ud83c\udded</div>
+          <h3 class="value-title">Filipino Pride</h3>
+          <p class="value-description">Celebrating and supporting Filipino innovation and entrepreneurship.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="contact-content">
+      <h2>Get in Touch</h2>
+      <div class="contact-info">
+        <p>\ud83d\udce7 Email: info@p1solution.com</p>
+        <p>\ud83d\udcf1 Phone: (02) 123-4567</p>
+        <p>\ud83d\udccd Address: Makati City, Metro Manila, Philippines</p>
+      </div>
+      <a href="mailto:info@p1solution.com" class="cta-button">Contact Us Today</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 \u20b11Solution. All rights reserved.</p>
+    <p>
+      <a href="HOMEPAGE.html">Home</a> |
+      <a href="ABOUT-US.html">About Us</a> |
+      <a href="HOMEPAGE.html#featured">Campaigns</a> |
+      <a href="#">Contact</a> |
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Terms of Service</a>
+    </p>
+  </footer>
+
+  <script>
+    // Copy authentication functionality from homepage
+    (function() {
+      'use strict';
+
+      // DOM Elements
+      const modal = document.getElementById('auth-modal');
+      const closeBtn = document.querySelector('.close');
+      const authLink = document.getElementById('auth-link');
+      const loginForm = document.getElementById('login-form');
+      const registerForm = document.getElementById('register-form');
+      const loginMessage = document.getElementById('login-message');
+      const registerMessage = document.getElementById('register-message');
+
+      // Update navigation based on login state
+      function updateNavigation() {
+        if (authLink) {
+          const userEmail = localStorage.getItem('userEmail');
+          authLink.textContent = userEmail ? 'My Account' : 'Login / Register';
+        }
+      }
+
+      // Initialize
+      updateNavigation();
+
+      // Auth link click
+      if (authLink) {
+        authLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          if (localStorage.getItem('userEmail')) {
+            // User is logged in - redirect to homepage account sidebar
+            window.location.href = 'HOMEPAGE.html';
+          } else {
+            // User not logged in - redirect to homepage login
+            window.location.href = 'HOMEPAGE.html';
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
