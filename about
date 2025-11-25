@@ -1,4 +1,4 @@
-
+//change image name, address//
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -457,7 +457,7 @@
       <nav>
         <ul>
           <li><a href="HOMEPAGE.html">Home</a></li>
-          <li><a href="ABOUT-US.html" class="active">About Us</a></li>
+          <li><a href="ABOUT-US.html" class="active">About Us</a></li>/*remove*/
           <li><a href="HOMEPAGE.html#featured">Browse Campaigns</a></li>
           <li><a href="#" id="auth-link">Login / Register</a></li>
         </ul>
@@ -523,30 +523,30 @@
         <!-- Team Member 1 -->
         <div class="team-member">
           <div class="member-image">
-            <img src="https://picsum.photos/seed/founder-ceo/400/400.jpg" alt="Founder & CEO">
+            <img src="https://picsum.photos/seed/founder-ceo/400/400.jpg" alt="Founder & CEO">/*change*/
           </div>
-          <h3 class="member-name">[Your Name]</h3>
-          <p class="member-role">Founder & CEO</p>
+          <h3 class="member-name">[Your Name]</h3>/*change*/
+          <p class="member-role">Founder & CEO</p>/*change*/
           <p class="member-bio">Visionary leader with a passion for empowering Filipino entrepreneurs and building sustainable communities through innovative financing solutions.</p>
           <div class="member-social">
-            <a href="#" class="social-link" title="LinkedIn">in</a>
-            <a href="#" class="social-link" title="Email">@</a>
-            <a href="#" class="social-link" title="Twitter">\ud835\udd4f</a>
+            <a href="#" class="social-link" title="LinkedIn">in</a>/*change*/
+            <a href="#" class="social-link" title="Email">@</a>/*change*/
+            <a href="#" class="social-link" title="Twitter">\ud835\udd4f</a>/*remove*/
           </div>
         </div>
 
         <!-- Team Member 2 -->
         <div class="team-member">
           <div class="member-image">
-            <img src="https://picsum.photos/seed/cofounder-coo/400/400.jpg" alt="Co-founder & COO">
+            <img src="https://picsum.photos/seed/cofounder-coo/400/400.jpg" alt="Co-founder & COO">/*change*/
           </div>
-          <h3 class="member-name">[Collaborator 2]</h3>
-          <p class="member-role">Co-founder & COO</p>
+          <h3 class="member-name">[Collaborator 2]</h3>/*change*/
+          <p class="member-role">Co-founder & COO</p>/*change*/
           <p class="member-bio">Operations expert dedicated to ensuring smooth platform functionality and exceptional user experience for all campaign creators and supporters.</p>
           <div class="member-social">
-            <a href="#" class="social-link" title="LinkedIn">in</a>
-            <a href="#" class="social-link" title="Email">@</a>
-            <a href="#" class="social-link" title="Twitter">\ud835\udd4f</a>
+            <a href="#" class="social-link" title="LinkedIn">in</a>/*change*/
+            <a href="#" class="social-link" title="Email">@</a>/*change*/
+            <a href="#" class="social-link" title="Twitter">\ud835\udd4f</a>/*remove*/
           </div>
         </div>
 
@@ -617,9 +617,9 @@
     <div class="contact-content">
       <h2>Get in Touch</h2>
       <div class="contact-info">
-        <p>\ud83d\udce7 Email: info@p1solution.com</p>
-        <p>\ud83d\udcf1 Phone: (02) 123-4567</p>
-        <p>\ud83d\udccd Address: Makati City, Metro Manila, Philippines</p>
+        <p>\ud83d\udce7 Email: info@p1solution.com</p>/*change*/
+        <p>\ud83d\udcf1 Phone: (02) 123-4567</p>/*change*/
+        <p>\ud83d\udccd Address: Makati City, Metro Manila, Philippines</p>/*change*/
       </div>
       <a href="mailto:info@p1solution.com" class="cta-button">Contact Us Today</a>
     </div>
