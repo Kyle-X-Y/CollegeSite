@@ -3,9 +3,11 @@
 <head>
 <meta charset='UTF-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-<title>Mobile Health Clinic - ₱1Solution Campaign</title>
+<title> Mobile Clinic - ₱1Solution Campaign</title>
 <style>
-  *{margin:0; padding:0; box-sizing:border-box;}
+  *{margin:0;
+    padding:0;
+    box-sizing:border-box;}
 
   body{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -29,13 +31,18 @@
     justify-content:space-between;
     align-items:center;
   }
-  nav ul{display:flex; gap:20px; list-style:none;}
+  nav ul{display:flex;
+    gap:20px;
+    list-style:none;
+  }
+
   nav a{
     text-decoration:none;
     color:#555;
     font-weight:500;
     cursor:pointer;
   }
+
   nav a:hover{color:#2c5aa0;}
   .logo img{
     width:180px;
@@ -48,7 +55,9 @@
     display:flex;
     gap:30px;
   }
+
   .left-column{flex:2;}
+
   .right-column{
     flex:1;
     background:#fff;
@@ -65,6 +74,7 @@
     object-fit:cover;
     object-position:center;
     height:300px;
+    border: 3px;
   }
 
   .campaign-title{
@@ -91,47 +101,64 @@
   .progress-fill{
     background:#4a90e2;
     height:100%;
-    width:0%;
-    transition:width .4s ease;
   }
 
+  /* Coin donate button - No automatic animation */
   .coin-btn{
     width:110px;
     height:110px;
-    background:url('Images/piso.jfif');
+    background:url('../Images/piso.jfif');
     background-size:cover;
     background-position:center;
     border:none;
     cursor:pointer;
     margin:auto;
     display:block;
+    /* Hover effect */
     transition:transform .2s;
   }
   .coin-btn:hover{
     transform:scale(1.1);
   }
 
-  .coin-falling { animation: coinFall 1.5s ease-out; }
+  /* Falling animation class - Applied on click */
+  .coin-falling {
+    animation: coinFall 1.5s ease-out;
+  }
+
+  /* Keyframes for falling animation - Starts from original position */
   @keyframes coinFall {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(200px); opacity: 0; }
+    0% {
+      transform: translateY(0); /* Start at original position */
+      opacity: 1; /* Fully visible */
+    }
+    100% {
+      transform: translateY(200px); /* Fall down 200px */
+      opacity: 0; /* Fade out as it falls */
+    }
   }
 
   .creator-box {
-    background: #ffffff;
-    border: 3px solid #2c5aa0;
-    border-radius: 12px;
-    padding: 20px;
-    margin-top: 30px;
-    display: block !important;
-    width: 100% !important;
-    box-shadow: 0 0 15px rgba(0,0,0,0.15);
+  background: #ffffff;
+  border: 3px solid #2c5aa0;       /* THICK BORDER so you SEE separation */
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 30px;
+
+  /* This forces spacing even inside flex layouts */
+  display: block !important;
+  width: 100% !important;
+
+  /* Forces visible separation */
+  box-shadow: 0 0 15px rgba(0,0,0,0.15);
   }
+
   .creator-box-content {
     display: flex;
     align-items: center;
     gap: 15px;
   }
+
   .creator-photo {
     width: 80px;
     height: 80px;
@@ -139,6 +166,9 @@
     border: 3px solid #2c5aa0;
     object-fit: cover;
   }
+
+
+
 
   .story-box{
     background:#fff;
@@ -150,8 +180,7 @@
 
   .donation-list{margin-top:15px;}
   .donation-entry{
-    background:#fff;
-    padding:10px;
+    background:#fff;padding:10px;
     border-radius:5px;
     display:flex;
     justify-content:space-between;
@@ -159,29 +188,6 @@
     box-shadow:0 1px 4px rgba(0,0,0,.05);
   }
 
-  /* Table styles with rounded cells */
-  .my-table {
-    width: 100%;
-    margin-bottom: 20px;
-    border-collapse: separate;
-    border-spacing: 0 1px;
-    border-radius: 5px;
-  }
-  .my-table th,
-  .my-table td {
-    border: 2px solid #2c5aa0;
-    border-radius: 12px;
-    padding: 8px;
-  }
-  .my-table th { background:#2c5aa0; color: white; }
-
-  footer{
-    margin-top:50px;
-    background:#2c5aa0;
-    color:#fff;
-    text-align:center;
-    padding:20px;
-  }
 
   .modal{
     display:none;
@@ -195,15 +201,51 @@
     z-index:999;
   }
 
-  .modal-content{
-    max-width:400px;
-    width:90%;
-    position:relative;
+  .modal-content {
     background: #fff;
     border-radius: 8px;
-    padding: 18px;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   }
+
+  .close{position:absolute;
+    right:15px;top:10px;
+    font-size:24px;
+    cursor:pointer;
+  }
+
+  .tab-buttons{
+    display:flex;
+    margin-bottom:20px;
+  }
+
+  .tab-btn{
+    flex:1;
+    padding:10px;
+    border:none;
+    background:#eee;
+    font-weight:bold;
+    cursor:pointer;
+  }
+
+  .tab-btn.active{
+    background:#2c5aa0;
+    color:#fff;}
+  .tab-content{
+    display:none;
+  }
+  .tab-content.active{display:block;}
+  .form-group{margin-bottom:15px;}
+  .form-group input{
+    width:100%;
+    padding:10px;
+    border:1px solid:#ddd;
+    border-radius:4px;
+  }
+
   .modal-btn{
     width:100%;
     padding:12px;
@@ -215,15 +257,8 @@
     margin-top:10px;
     cursor:pointer;
   }
-  .close{position:absolute; right:15px;top:10px; font-size:24px; cursor:pointer;}
-  .tab-buttons{display:flex;margin-bottom:20px;}
-  .tab-btn{flex:1;padding:10px;border:none;background:#eee;font-weight:bold;cursor:pointer;}
-  .tab-btn.active{background:#2c5aa0;color:#fff;}
-  .tab-content{display:none;}
-  .tab-content.active{display:block;}
-  .form-group{margin-bottom:15px;}
-  .form-group input{width:100%;padding:10px;border:1px solid:#ddd;border-radius:4px;}
 
+  /* SIDEBAR */
   .sidebar {
     position: fixed;
     top: 0;
@@ -237,16 +272,56 @@
     z-index: 2000;
   }
   .sidebar.open {right: 0;}
-  .close-sidebar {position: absolute; top: 10px; right: 15px; font-size:24px; cursor:pointer;}
+  .close-sidebar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size:24px;
+    cursor:pointer;
+  }
 
-  @media(max-width:900px){.layout{flex-direction:column;}}
+  @media(max-width:900px){
+    .layout{flex-direction:column;}
+  }
+
+  table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: separate;
+    border-spacing: 0 1px;
+    order-radius: 5px;
+    
+  }
+  table th,
+  table td {
+    border: 2px solid #2c5aa0;
+    border-radius: 12px;
+    padding: 8px;
+  }
+
+  table th {
+
+    background:#2c5aa0 ;
+    color: white;
+  }
+
+
+  footer{
+    margin-top:50px;
+    background:#2c5aa0;
+    color:#fff;
+    text-align:center;
+    padding:20px;
+  }
+
+  
 </style>
 </head>
 <body>
 
 <header>
   <div class='header-content'>
-    <div class='logo'><img src='Images/logo.jfif' id='logo-click'></div>
+    <div class='logo'><img src='../Images/logo.jfif' id='logo-click'></div>
     <nav>
       <ul>
         <li><a id='home-link'>Home</a></li>
@@ -259,99 +334,163 @@
 
 <div class='layout'>
   <div class='left-column'>
-    <img src='Images/store.jpg' class='campaign-img'>
-    <h1 class='campaign-title'>Mobile Health Clinic </h1>
-
+    <img src='../Images/clinic.jpg' class="campaign-img" alt="Mobile Clinic">
     <div class='story-box'>
       <h2>Story</h2>
       <p>
-        In many rural communities across the Philippines, families often travel hours just to reach the nearest health center. <br>
-        Simple illnesses go untreated, pregnant women lack proper prenatal check-ups, and children miss essential vaccinations because transportation is either too expensive or unavailable. <br>
-        Over time, these small problems grow into life-threatening conditions that could have been prevented with timely medical care. <br>
-        This campaign exists to change that reality for the people who need it most.<br><br>
+        In many rural communities across the Philippines, families often travel hours just to reach the nearest health center.
+        <br>
+        Simple illnesses go untreated, pregnant women lack proper prenatal check-ups, and children miss essential vaccinations because transportation is either too expensive or unavailable.
+        <br>
+        Over time, these small problems grow into life-threatening conditions that could have been prevented with timely medical care.
+        <br>
+        This campaign exists to change that reality for the people who need it most.
+        <br>
+        <br>
         The Mobile Health Clinic will bring doctors, nurses, check-ups, vaccinations, and basic treatments directly to underserved barangays. Equipped with essential tools and staffed by compassionate medical professionals, this clinic will travel from community to community—making healthcare accessible, affordable, and consistent. Your support helps ensure that no family is left behind simply because the nearest clinic is too far away.
       </p>
 
-      <h3 style="margin-top:20px;color:#2c5aa0;">What is the campaign about?</h3>
+      <h3>What is the campaign about?</h3>
       <p>
         This campaign aims to fund a mobile medical clinic that will deliver free or low-cost healthcare services to rural barangays. The goal is to provide check-ups, vaccinations, wound care, consultations, and health education to communities with limited access to hospitals.
       </p>
 
-      <h3 style="margin-top:20px;color:#2c5aa0;">What will you do with the funds? (₱20,000 Budget)</h3>
-      <table class="my-table" aria-label="Funding breakdown">
+      <h3>What will you do with the funds?</h3>
+      <table>
         <thead>
-          <tr><th>Item</th><th>Cost</th></tr>
+          <tr>
+            <th>Item</th>
+            <th>Cost</th>
+          </tr>
         </thead>
         <tbody>
-          <tr><td>Medical supplies (stethoscopes, BP monitors, thermometers, first-aid kits)</td><td>₱6,000</td></tr>
-          <tr><td>Medicines (antibiotics, pain relievers, wound care essentials, vitamins)</td><td>₱5,000</td></tr>
-          <tr><td>Fuel and transportation for clinic rounds</td><td>₱4,000</td></tr>
-          <tr><td>Portable tables, chairs, and patient setup materials</td><td>₱3,000</td></tr>
-          <tr><td>Health education materials and outreach information</td><td>₱2,000</td></tr>
-          <tr><td style="font-weight:700;">Total</td><td style="font-weight:700;">₱20,000</td></tr>
+          <tr>
+            <td>Medical supplies (stethoscopes, BP monitors, thermometers, first-aid kits)</td>
+            <td>₱6,000</td>
+          </tr>
+          <tr>
+            <td>Medicines (antibiotics, pain relievers, wound care essentials, vitamins)</td>
+            <td>₱5,000</td>
+          </tr>
+          <tr>
+            <td>Fuel and transportation for clinic rounds</td>
+            <td>₱4,000</td>
+          </tr>
+          <tr>
+            <td>Portable tables, chairs, and patient setup materials</td>
+            <td>₱3,000</td>
+          </tr>
+          <tr>
+            <td>Health education materials and outreach information</td>
+            <td>₱2,000</td>
+          </tr>
+          <tr>
+            <td>Total</td>
+            <td>₱20,000</td>
+          </tr>
         </tbody>
       </table>
 
-      <h3 style="margin-top:20px;color:#2c5aa0;">Where will it be located?</h3>
-      <p>The mobile clinic will operate across rural communities in <strong>Nueva Ecija</strong>, focusing on remote barangays where medical access is most limited.</p>
+      <h3>Where will it be located?</h3>
+      <p>The mobile clinic will operate across rural communities in Nueva Ecija, focusing on remote barangays where medical access is most limited.</p>
     </div>
   </div>
 
   <div class='right-column'>
-    <h2 class='campaign-title'>Mobile Health Clinic</h2>
+    <h2 class='campaign-title'>Mobile Clinic</h2>
     <div class='progress-box'>
-      <strong id='raised-label'>₱0 raised of ₱20,000 goal</strong>
+      <strong id='raised-label'>₱0 raised of 15000 goal</strong>
       <div class='progress-bar'>
-        <div class='progress-fill' id='fill' role="progressbar" aria-valuemin="0" aria-valuemax="20000"></div>
+        <div class='progress-fill' id='fill'></div>
       </div>
     </div>
 
-    <button id='donate-btn' class='coin-btn' title="Donate ₱1"></button>
+    <button id='donate-btn' class='coin-btn'></button>
 
     <div class='donation-list' id='donation-list'>
       <h3 style='margin-top:15px;color:#2c5aa0;'>Recent Donators</h3>
+      <div class='donation-entry'><span>Mark</span><span>₱1</span></div>
+      <div class='donation-entry'><span>Ana</span><span>₱5</span></div>
+      <div class='donation-entry'><span>Carlo</span><span>₱2</span></div>
     </div>
 
     <div class="author-box">
-      <div class="creator-box">
-        <h3>Campaign Creator</h3>
-        <div class="creator-box-content">
-          <img src="Images/profile4.jpg" class="creator-photo" alt="Creator photo">
-          <div>
-            <p><strong>Name:</strong> Dr. Miguel Santos</p>
-            <p><strong>Email:</strong> miguel.santos@example.com</p>
-            <p><strong>About:</strong> Physician dedicated to improving healthcare access in rural areas.</p>
-          </div>
-        </div>
-      </div>
+  <div class="creator-box">
+  <h3>Campaign Creator</h3>
+
+  <div class="creator-box-content">
+    <img src="../Images/profile.jpg" class="creator-photo">
+    <div>
+      <p><strong>Name:</strong> Juan Dela Cruz</p>
+      <p><strong>Email:</strong> juan@example.com</p>
+      <p><strong>About:</strong> Barber Shop</p>
     </div>
   </div>
 </div>
 
-<footer>
-  ₱1Solution • All Rights Reserved.
-</footer>
+</div>
 
-<!-- Modals and Sidebar remain unchanged -->
+
+  </div>
+</div>
+
+<footer>
+ <div> ₱1Solution • All Rights Reserved.</div>
+<footer>
+
+<!-- Modal -->
+<div id='auth-modal' class='modal'>
+  <div class='modal-content'>
+    <span class='close'>&times;</span>
+    <div class='tab-buttons'>
+      <button class='tab-btn active' onclick='showTab("login")'>Login</button>
+      <button class='tab-btn' onclick='showTab("register")'>Register</button>
+    </div>
+    <div id='login' class='tab-content active'>
+      <div class='form-group'><input type='email' id='login-email' placeholder='Email'></div>
+      <div class='form-group'><input type='password' placeholder='Password'></div>
+      <button class='modal-btn' id='login-submit'>Login</button>
+    </div>
+    <div id='register' class='tab-content'>
+      <div class='form-group'><input type='text' id='register-name' placeholder='Full Name'></div>
+      <div class='form-group'><input type='email' id='register-email' placeholder='Email'></div>
+      <div class='form-group'><input type='password' placeholder='Password'></div>
+      <button class='modal-btn' id='register-submit'>Register</button>
+    </div>
+  </div>
+</div>
+
+<!-- SIDEBAR -->
+<div id='account-sidebar' class='sidebar'>
+  <span class='close-sidebar'>&times;</span>
+  <h2>Account Information</h2>
+  <p><strong>Name:</strong> <span id='acc-name'></span></p>
+  <p><strong>Email:</strong> <span id='acc-email'></span></p>
+  <button id='logout-btn' class='modal-btn' style='background:red;'>Logout</button>
+</div>
 
 <script>
+// Consolidated script for Laundry campaign — defensive, single init, per-campaign keys.
   (function(){
     const campaignID = 'clinic';
     const CAMPAIGN_KEY = `campaign-${campaignID}_raised`;
     const CAMPAIGN_GOAL_KEY = `campaign-${campaignID}_goal`;
 
+    // NAV
     const authLink = document.getElementById('auth-link');
     const homeLink = document.getElementById('home-link');
     const browseLink = document.getElementById('browse-link');
     const logoClick = document.getElementById('logo-click');
 
-    if (homeLink) homeLink.onclick = () => { window.location.href = 'HOMEPAGE.html'; };
-    if (logoClick) logoClick.onclick = () => { window.location.href = 'HOMEPAGE.html'; };
-    if (browseLink) browseLink.onclick = () => { window.location.href = 'HOMEPAGE.html#featured'; };
+    if (homeLink) homeLink.onclick = () => { window.location.href = '../HOMEPAGE.html'; };
+    if (logoClick) logoClick.onclick = () => { window.location.href = '../HOMEPAGE.html'; };
+    if (browseLink) browseLink.onclick = () => { window.location.href = '../HOMEPAGE.html#featured'; };
 
-    let amountRaised = 0;
-    let goalAmount = 20000;
+    // STATE
+    let amountRaised = 7942 ;
+    let goalAmount = parseInt(localStorage.getItem(CAMPAIGN_GOAL_KEY)) || 15000;
 
+    // ELEMENTS
     const modal = document.getElementById('auth-modal');
     const donate = document.getElementById('donate-btn');
     const closeBtn = document.querySelector('.close');
@@ -361,6 +500,7 @@
     const donationList = document.getElementById('donation-list');
     const fillEl = document.getElementById('fill');
 
+    // DONATE
     if (donate) {
       donate.addEventListener('click', (e) => {
         e.preventDefault();
@@ -375,9 +515,11 @@
       });
     }
 
+    // CLOSE HANDLERS
     if (closeBtn) closeBtn.addEventListener('click', () => { if (modal) modal.style.display = 'none'; });
     window.addEventListener('click', (e) => { if (e.target === modal && modal) modal.style.display = 'none'; });
 
+    // Tabs
     window.showTab = function(name, btn) {
       document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -386,6 +528,7 @@
       if (btn) btn.classList.add('active');
     };
 
+    // LOGIN / REGISTER
     function saveUser(name, email) {
       localStorage.setItem('userName', name);
       localStorage.setItem('userEmail', email);
@@ -407,6 +550,7 @@
       if (modal) modal.style.display = 'none';
     });
 
+    // SIDEBAR ACCOUNT
     if (authLink) authLink.addEventListener('click', (e) => {
       e.preventDefault();
       if (localStorage.getItem('userEmail')) {
@@ -432,6 +576,7 @@
     }
     updateNav();
 
+    // DONATION SYSTEM
     function renderDonations(donations) {
       if (!donationList) return;
       donationList.innerHTML = `<h3 style='margin-top:15px;color:#2c5aa0;'>Recent Donators</h3>`;
@@ -447,7 +592,7 @@
       let donations = JSON.parse(localStorage.getItem(`donations_${campaignID}`)) || {};
       donations[name] = (donations[name] || 0) + amount;
       localStorage.setItem(`donations_${campaignID}`, JSON.stringify(donations));
-      amountRaised = Object.values(donations).reduce((a, b) => a + b, 0);
+      amountRaised = Object.values(donations).reduce((a, b) => a + b, 7942);
       renderDonations(donations);
       updateGoal();
       localStorage.setItem(CAMPAIGN_KEY, String(amountRaised));
@@ -458,22 +603,27 @@
       const label = document.getElementById('raised-label');
       if (label) label.textContent = `₱${amountRaised} raised of ₱${goalAmount} goal`;
       if (fillEl) fillEl.style.width = Math.min(100, (amountRaised / goalAmount) * 100) + '%';
+      localStorage.setItem(CAMPAIGN_KEY, String(amountRaised));
+      localStorage.setItem(CAMPAIGN_GOAL_KEY, String(goalAmount));
+      localStorage.setItem('progress_' + campaignID, String(amountRaised));
     }
 
+    // INIT
     (function init(){
       let saved = JSON.parse(localStorage.getItem(`donations_${campaignID}`));
       if (!saved || Object.keys(saved).length === 0) {
-        const filler = {"Emil":5,"Rhea":3,"Jonas":2};
+        const filler = {"Emman":23,"Beverly":5,"Shawn":17};
         localStorage.setItem(`donations_${campaignID}`, JSON.stringify(filler));
         saved = filler;
       }
       renderDonations(saved);
-      amountRaised = Object.values(saved).reduce((a, b) => a + b, 0);
+      amountRaised = Object.values(saved).reduce((a, b) => a + b, 7942);
       updateGoal();
     })();
 
   })();
 </script>
+
 </body>
+
 </html>
- 

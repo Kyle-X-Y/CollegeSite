@@ -106,7 +106,7 @@
   .coin-btn{
     width:110px;
     height:110px;
-    background:url('Images/piso.jfif');
+    background:url('../Images/piso.jfif');
     background-size:cover;
     background-position:center;
     border:none;
@@ -288,6 +288,26 @@
   @media(max-width:900px){
     .layout{flex-direction:column;}
   }
+  table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: separate;
+    border-spacing: 0 1px;
+    order-radius: 5px;
+    
+  }
+  table th,
+  table td {
+    border: 2px solid #2c5aa0;
+    border-radius: 12px;
+    padding: 8px;
+  }
+
+  table th {
+
+    background:#2c5aa0 ;
+    color: white;
+  }
   
 </style>
 </head>
@@ -295,7 +315,7 @@
 
 <header>
   <div class='header-content'>
-    <div class='logo'><img src='Images/logo.jfif' id='logo-click'></div>
+    <div class='logo'><img src='../Images/logo.jfif' id='logo-click'></div>
     <nav>
       <ul>
         <li><a id='home-link'>Home</a></li>
@@ -308,21 +328,63 @@
 
 <div class='layout'>
   <div class='left-column'>
-    <img src='Images/water-refilling-station.jpg' class='campaign-img'>
+    <img src='../Images/water-refilling-station.jpg' class='campaign-img'>
 
-    <div class='story-box'>
+     <div class='story-box'>
       <h2>Story</h2>
       <p>
-       In a poor barangay, dirty wells and typhoon rains make water unsafe, causing sickness in families.
-       <br>
-        A new water refilling station uses machines to clean the bad water into safe, cheap drinking water for a few pesos per jug.
-       <br> 
-        This helps people fill their containers easily, so kids can play without getting weak, elders can get water without walking far, and everyone stays healthier without boiling muddy river water or skipping meals for bottles.
-       <br> 
-        The station becomes a useful spot where the community gathers. 
-      </p>  
+        For generations, the local store shop has been the heartbeat of the neighborhood, offering everyday essentials like groceries, household items, and a friendly chat. But as time has passed, the shop has seen better days—faded shelves, outdated inventory, and limited space that make it hard to serve the growing community effectively. This beloved spot risks fading away if not revitalized, leaving a void in the daily lives of families who rely on it.
+        <br><br>
+        This renovation campaign aims to breathe new life into the store shop. By upgrading the layout, restocking with fresh inventory, and improving customer amenities, we can transform it into a modern, welcoming hub that supports local needs and fosters community connections.
+      </p>
+
+      <h3>What is the campaign about?</h3>
+      <p>
+      This campaign seeks to renovate a traditional store shop to make it more efficient, customer-friendly, and sustainable. The focus is on updating the interior, expanding inventory with local products, and enhancing the shopping experience to attract more customers and boost local economy.
+      </p>
+
+     
+      <h3>Where will it be located?</h3>
+      <p>
+      The renovation will take place at the community store shop in **Barangay San Antonio**, serving residents and families from surrounding areas.
+      </p>
+      <h3>Where will the funds go? (₱20,000 Budget)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>New shelves and storage units</td>
+            <td>₱5,000</td>
+          </tr>
+          <tr>
+            <td>Fresh inventory and local products</td>
+            <td>₱6,000</td>
+          </tr>
+          <tr>
+            <td>Interior paint, flooring, and decor</td>
+            <td>₱6,000</td>
+          </tr>
+          <tr>
+            <td>Marketing and signage</td>
+            <td>₱2,000</td>
+          </tr>
+          <tr>
+            <td>Customer amenities like seating and lighting</td>
+            <td>₱1,000</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Location</h3>
+      <p>The renovation will take place at the community store shop in Barangay San Antonio, serving residents and families from surrounding areas.</p>
     </div>
   </div>
+
 
   <div class='right-column'>
     <h2 class='campaign-title'>Water Refilling Station</h2>
@@ -347,7 +409,7 @@
   <h3>Campaign Creator</h3>
 
   <div class="creator-box-content">
-    <img src="Images/profile.jpg" class="creator-photo">
+    <img src="../Images/profile.jpg" class="creator-photo">
     <div>
       <p><strong>Name:</strong> Juan Dela Cruz</p>
       <p><strong>Email:</strong> juan@example.com</p>
@@ -357,7 +419,7 @@
 </div>
 
 </div>
-
+</div>
 
   </div>
 </div>
@@ -520,7 +582,7 @@
       let donations = JSON.parse(localStorage.getItem(`donations_${campaignID}`)) || {};
       donations[name] = (donations[name] || 0) + amount;
       localStorage.setItem(`donations_${campaignID}`, JSON.stringify(donations));
-      amountRaised = Object.values(donations).reduce((a, b) => a + b, 0);
+      amountRaised = Object.values(donations).reduce((a, b) => a + b, 3972);
       renderDonations(donations);
       updateGoal();
       localStorage.setItem(CAMPAIGN_KEY, String(amountRaised));
@@ -540,12 +602,12 @@
     (function init(){
       let saved = JSON.parse(localStorage.getItem(`donations_${campaignID}`));
       if (!saved || Object.keys(saved).length === 0) {
-        const filler = {"Vhener":5,"Jedidiah":10,"Iziah":25};
+        const filler = {"Elijah":12,"Mae":17,"Rico":5};
         localStorage.setItem(`donations_${campaignID}`, JSON.stringify(filler));
         saved = filler;
       }
       renderDonations(saved);
-      amountRaised = Object.values(saved).reduce((a, b) => a + b, 0);
+      amountRaised = Object.values(saved).reduce((a, b) => a + b, 3972);
       updateGoal();
     })();
 

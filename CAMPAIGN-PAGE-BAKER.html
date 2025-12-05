@@ -3,11 +3,9 @@
 <head>
 <meta charset='UTF-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-<title>Laundry Shop - ₱1Solution Campaign</title>
+<title>Community Bakery - ₱1Solution Campaign</title>
 <style>
-  *{margin:0;
-    padding:0;
-    box-sizing:border-box;}
+  *{margin:0; padding:0; box-sizing:border-box;}
 
   body{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -31,18 +29,13 @@
     justify-content:space-between;
     align-items:center;
   }
-  nav ul{display:flex;
-    gap:20px;
-    list-style:none;
-  }
-
+  nav ul{display:flex; gap:20px; list-style:none;}
   nav a{
     text-decoration:none;
     color:#555;
     font-weight:500;
     cursor:pointer;
   }
-
   nav a:hover{color:#2c5aa0;}
   .logo img{
     width:180px;
@@ -55,9 +48,7 @@
     display:flex;
     gap:30px;
   }
-
   .left-column{flex:2;}
-
   .right-column{
     flex:1;
     background:#fff;
@@ -100,9 +91,10 @@
   .progress-fill{
     background:#4a90e2;
     height:100%;
+    width:0%;
+    transition:width .4s ease;
   }
 
-  /* Coin donate button - No automatic animation */
   .coin-btn{
     width:110px;
     height:110px;
@@ -113,43 +105,30 @@
     cursor:pointer;
     margin:auto;
     display:block;
-    /* Hover effect */
     transition:transform .2s;
   }
   .coin-btn:hover{
     transform:scale(1.1);
   }
 
-  /* Falling animation class - Applied on click */
   .coin-falling {
     animation: coinFall 1.5s ease-out;
   }
 
-  /* Keyframes for falling animation - Starts from original position */
   @keyframes coinFall {
-    0% {
-      transform: translateY(0); /* Start at original position */
-      opacity: 1; /* Fully visible */
-    }
-    100% {
-      transform: translateY(200px); /* Fall down 200px */
-      opacity: 0; /* Fade out as it falls */
-    }
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(200px); opacity: 0; }
   }
 
   .creator-box {
-  background: #ffffff;
-  border: 3px solid #2c5aa0;       /* THICK BORDER so you SEE separation */
-  border-radius: 12px;
-  padding: 20px;
-  margin-top: 30px;
-
-  /* This forces spacing even inside flex layouts */
-  display: block !important;
-  width: 100% !important;
-
-  /* Forces visible separation */
-  box-shadow: 0 0 15px rgba(0,0,0,0.15);
+    background: #ffffff;
+    border: 3px solid #2c5aa0;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 30px;
+    display: block !important;
+    width: 100% !important;
+    box-shadow: 0 0 15px rgba(0,0,0,0.15);
   }
 
   .creator-box-content {
@@ -165,9 +144,6 @@
     border: 3px solid #2c5aa0;
     object-fit: cover;
   }
-
-
-
 
   .story-box{
     background:#fff;
@@ -187,14 +163,6 @@
     box-shadow:0 1px 4px rgba(0,0,0,.05);
   }
 
-  footer{
-    margin-top:50px;
-    background:#2c5aa0;
-    color:#fff;
-    text-align:center;
-    padding:20px;
-  }
-
   .modal{
     display:none;
     position:fixed;
@@ -207,108 +175,114 @@
     z-index:999;
   }
 
-  .modal-content{
-    max-width:400px;
-    width:90%;
-    position:relative;
+  .modal-content {
     background: #fff;
     border-radius: 8px;
-    padding: 18px;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.2);
-  }
-  .modal-btn{
-    width:100%;
-    padding:12px;
-    background:#2c5aa0;
-    color:#fff;
-    border:none;
-    border-radius:4px;
-    font-weight:bold;
-    margin-top:10px;
-    cursor:pointer;
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   }
 
-  .close{position:absolute;
-    right:15px;top:10px;
-    font-size:24px;
-    cursor:pointer;
-  }
-
+  .close{
+    position:absolute; 
+    right:15px;top:10px; 
+    font-size:24px; 
+    cursor:pointer;}
   .tab-buttons{
-    display:flex;
+    display:flex; 
     margin-bottom:20px;
   }
-
   .tab-btn{
-    flex:1;
-    padding:10px;
-    border:none;
-    background:#eee;
-    font-weight:bold;
+    flex:1; 
+    padding:10px; 
+    border:none; 
+    background:#eee; 
+    font-weight:bold; 
     cursor:pointer;
   }
-
   .tab-btn.active{
-    background:#2c5aa0;
-    color:#fff;}
+    background:#2c5aa0; 
+    color:#fff;
+  }
   .tab-content{
     display:none;
   }
-  .tab-content.active{display:block;}
-  .form-group{margin-bottom:15px;}
+  .tab-content.active{
+    display:block;
+  }
+  .form-group{
+    margin-bottom:15px;
+  }
   .form-group input{
-    width:100%;
-    padding:10px;
-    border:1px solid:#ddd;
+    width:100%; 
+    padding:10px; 
+    border:1px solid:#ddd; 
     border-radius:4px;
   }
-
-  /* SIDEBAR */
-  .sidebar {
-    position: fixed;
-    top: 0;
-    right: -350px;
-    width: 300px;
-    height: 100%;
-    background: #fff;
-    box-shadow: -2px 0 10px rgba(0,0,0,0.2);
-    padding: 20px;
-    transition: right 0.3s;
-    z-index: 2000;
-  }
-  .sidebar.open {right: 0;}
-  .close-sidebar {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size:24px;
+  .modal-btn{
+    width:100%; 
+    padding:12px; 
+    background:#2c5aa0; 
+    color:#fff; 
+    border:none; 
+    border-radius:4px; 
+    font-weight:bold; 
+    margin-top:10px; 
     cursor:pointer;
   }
 
-  @media(max-width:900px){
-    .layout{flex-direction:column;}
+  .sidebar {
+    position: fixed; 
+    top: 0; 
+    right: -350px; 
+    width: 300px; 
+    height: 100%; 
+    background: #fff; 
+    box-shadow: -2px 0 10px rgba(0,0,0,0.2); 
+    padding: 20px; 
+    transition: right 0.3s; 
+    z-index: 2000;
   }
+  .sidebar.open {
+    right: 0;
+  }
+  .close-sidebar {
+    position: absolute; 
+    top: 10px; 
+    right: 15px; 
+    font-size:24px; 
+    cursor:pointer;
+  }
+  @media(max-width:900px){.layout{flex-direction:column;}}
+
+  /* Table styles with rounded cells */
   table {
     width: 100%;
     margin-bottom: 20px;
-    border-collapse: separate;
-    border-spacing: 0 1px;
-    order-radius: 5px;
-    
+    border-collapse: separate;   /* allow border-radius */
+    border-spacing: 0 1px;       /* small vertical spacing between rows */
+    border-radius: 5px;          /* overall table rounding */
   }
-  table th,
+  .my-table th,
   table td {
     border: 2px solid #2c5aa0;
-    border-radius: 12px;
+    border-radius: 12px;         /* rounded corners for cells */
     padding: 8px;
   }
-
   table th {
-
     background:#2c5aa0 ;
     color: white;
   }
-  
+
+  footer{
+    margin-top:50px;
+    background:#2c5aa0;
+    color:#fff;
+    text-align:center;
+    padding:20px;
+  }
 </style>
 </head>
 <body>
@@ -328,27 +302,23 @@
 
 <div class='layout'>
   <div class='left-column'>
-    <img src='../Images/laundry.jpg' class='campaign-img'>
+    <img src='../Images/bakery.jpg' class='campaign-img' alt="Bakery Improvements">
 
     <div class='story-box'>
       <h2>Story</h2>
       <p>
-      In many communities, busy parents, working students, and local residents struggle to balance household chores with their daily responsibilities. Washing clothes often takes hours—time that could be spent earning, studying, resting, or spending with family. Seeing this need, the idea of a small but reliable laundry shop was born. This aims to provide an accessible laundry service that makes life easier for residents. Instead of spending half a day handwashing clothes, customers can drop off their laundry and go on with their daily tasks, picking up their clean, fresh clothes at their convenience. The laundry shop hopes to support the community by saving time, energy, and effort—while offering affordable and quality service.
-      </p>
-      <br>
-      <h3>What is the campaign about?</h3>
-      <p>
-      The campaign is about establishing a community laundry shop that provides fast, affordable, and high-quality washing and drying services to local residents while supporting future livelihood opportunities.
+      Our community bakery began as a small weekend passion project—just a single oven, a table, and a mission to bring freshly baked bread to neighbors who rarely had access to affordable, quality pastries. Over time, more people began visiting, asking for pandesal in the mornings, soft ensaymada for merienda, and affordable loaf bread for their families. This little bakery became more than a business; it became a place where people could gather, talk, and feel at home. The warmth of the bread started reflecting the warmth of the community itself.
+      <br><br>
+      Now, demand has grown beyond what our current small setup can handle. Parents ask for larger batches, students stop by for budget-friendly snacks, and residents rely on us for fresh bread every morning. To keep serving our growing community—and to improve the quality and consistency of what we make—we’re launching this campaign to expand and upgrade our humble bakery into something that can truly uplift the neighborhood.
       </p>
 
-     <br>
-      <h3>Where will it be located?</h3>
+      <h3 style="margin-top:18px;color:#2c5aa0;">What is the campaign about?</h3>
       <p>
-        The laundry shop will be located in Barangay San Roque, Tarlac City, Philippines, a neighborhood where busy residents and students need accessible and reliable laundry services close to home.
+        This campaign is about helping a small community bakery upgrade its equipment, increase production, and create a welcoming space for locals. By supporting the project, you’re helping maintain an affordable food source for families, giving young people a safe place to gather, and preserving homemade Filipino baking traditions.
       </p>
-      <br>
-      <h3>Where will the funds go?</h3>
-      <table>
+
+      <h3 style="margin-top:18px;color:#2c5aa0;">What will you do with the funds? (₱15,000 Budget)</h3>
+      <table class="my-table" aria-label="Funding breakdown">
         <thead>
           <tr>
             <th>Item</th>
@@ -357,66 +327,67 @@
         </thead>
         <tbody>
           <tr>
-            <td>Laundry detergents, fabric conditioners, and cleaning supplies</td>
-            <td>₱10,000</td>
+            <td>Upgraded baking tools (mixers, baking trays, small scale equipment)</td>
+            <td>₱4,500</td>
           </tr>
           <tr>
-            <td> Second-hand washing machine or machine upgrade fund</td>
-            <td>₱70,000</td>
+            <td>Bulk ingredients (flour, sugar, butter, yeast, fillings)</td>
+            <td>₱3,500</td>
           </tr>
           <tr>
-            <td>Plastic baskets, laundry bags, and storage materials</td>
-            <td>₱8,000</td>
+            <td>Oven repairs and maintenance</td>
+            <td>₱3,000</td>
           </tr>
           <tr>
-            <td>Signage/tarpaulin and small marketing</td>
+            <td>Interior improvements (shelves, countertop repairs, minor electrical)</td>
             <td>₱2,000</td>
           </tr>
           <tr>
-            <td>Basic shop improvements (small table, rack, or counter)</td>
-            <td>₱10,000</td>
+            <td>Packaging materials (boxes, paper, labels)</td>
+            <td>₱2,000</td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;">Total</td>
+            <td style="font-weight:700;">₱15,000</td>
           </tr>
         </tbody>
       </table>
-      </p>  
+
+      <h3 style="margin-top:12px;color:#2c5aa0;">Where will it be located?</h3>
+      <p>
+        The bakery will be located in Dasmariñas, Cavite — a growing residential community where many families and students pass by daily and would directly benefit from affordable, high-quality baked goods.
+      </p>
     </div>
   </div>
 
   <div class='right-column'>
-    <h2 class='campaign-title'>Laundry Shop</h2>
+    <h2 class='campaign-title'>Community Bakery</h2>
     <div class='progress-box'>
-      <strong id='raised-label'>₱2863 raised of 10000 goal</strong>
+      <strong id='raised-label'>₱0 raised of ₱15,000 goal</strong>
       <div class='progress-bar'>
-        <div class='progress-fill' id='fill'></div>
+        <div class='progress-fill' id='fill' role="progressbar" aria-valuemin="0" aria-valuemax="15000"></div>
       </div>
     </div>
 
-    <button id='donate-btn' class='coin-btn'></button>
+    <button id='donate-btn' class='coin-btn' title="Donate ₱1"></button>
 
     <div class='donation-list' id='donation-list'>
       <h3 style='margin-top:15px;color:#2c5aa0;'>Recent Donators</h3>
-      <div class='donation-entry'><span>Mark</span><span>₱1</span></div>
-      <div class='donation-entry'><span>Ana</span><span>₱5</span></div>
-      <div class='donation-entry'><span>Carlo</span><span>₱2</span></div>
     </div>
 
     <div class="author-box">
-  <div class="creator-box">
-  <h3>Campaign Creator</h3>
-
-  <div class="creator-box-content">
-    <img src="../Images/profile.jpg" class="creator-photo">
-    <div>
-      <p><strong>Name:</strong> Juan Dela Cruz</p>
-      <p><strong>Email:</strong> juan@example.com</p>
-      <p><strong>About:</strong> Laundry Shop</p>
+      <div class="creator-box">
+        <h3>Campaign Creator</h3>
+        <div class="creator-box-content">
+          <img src="../Images/profile.jpg" class="creator-photo" alt="Creator photo">
+          <div>
+            <p><strong>Name:</strong> Rafael Gomez</p>
+            <p><strong>Email:</strong> rafael.gomez@example.com</p>
+            <p><strong>About:</strong> Passionate baker aiming to bring community together through bread and pastries.</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-
-</div>
-
-
   </div>
 </div>
 
@@ -455,10 +426,11 @@
   <button id='logout-btn' class='modal-btn' style='background:red;'>Logout</button>
 </div>
 
+
 <script>
 // Consolidated script for Laundry campaign — defensive, single init, per-campaign keys.
   (function(){
-    const campaignID = 'laundry';
+    const campaignID = 'baker';
     const CAMPAIGN_KEY = `campaign-${campaignID}_raised`;
     const CAMPAIGN_GOAL_KEY = `campaign-${campaignID}_goal`;
 
@@ -474,7 +446,8 @@
 
     // STATE
     let amountRaised = 3972 ;
-    let goalAmount = parseInt(localStorage.getItem(CAMPAIGN_GOAL_KEY)) || 10000;
+    let goalAmount = parseInt(localStorage.getItem(CAMPAIGN_GOAL_KEY)) || 15000;
+
 
     // ELEMENTS
     const modal = document.getElementById('auth-modal');
@@ -598,7 +571,7 @@
     (function init(){
       let saved = JSON.parse(localStorage.getItem(`donations_${campaignID}`));
       if (!saved || Object.keys(saved).length === 0) {
-        const filler = {"Nathalie":14,"Owen":19,"Riza":6};
+        const filler = {"Carlito":14,"Rhian":30,"Vince":9};
         localStorage.setItem(`donations_${campaignID}`, JSON.stringify(filler));
         saved = filler;
       }
@@ -609,6 +582,7 @@
 
   })();
 </script>
+
 
 </body>
 </html>
