@@ -72,10 +72,48 @@
       color: #2c5aa0;
       font-weight: bold;
     }
+    
+    .nav-img-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      padding: 12px !important;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      text-decoration: none;	
+    }
+
+    .nav-img-icon img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+    }
+
+    .nav-img-icon:hover {
+      background: rgba(74, 144, 226, 0.1);
+      transform: scale(1.1);
+      color: #2c5aa0 !important;
+    }
+    
+    .nav-account-img, .nav-login-img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+    }
+
+    .nav-img-icon:hover img, 
+    .nav-account-img:hover, 
+    .nav-login-img:hover {
+      transform: scale(1.1);
+    }
+
+
 
     /* Hero Section */
     .hero {
-      background-image: url('https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcQQWWLVC49wleTNHGuxyVGKwbbtnXhb7WbvqDmca0vDTq2BJae6iLkw4B50qJg9gHxV_dCMTVV1re36Ldl4J6faC6ZV44NHozOlyhPA_xH2sQfpqBQ');
+      background-image: url('Images/background.jpg');
       background-size: cover;
       background-position: center top;
       background-repeat: no-repeat;
@@ -802,7 +840,6 @@
       }
     }
   </style>
-<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
 </head>
 <body>
   <header>
@@ -813,12 +850,25 @@
         </div>
       </a>
       <nav>
-        <ul>
-          <li><a href="HOMEPAGE.html">Home</a></li>
-          <li><a href="#featured">Browse Campaigns</a></li>
-          <li><a href="#" id="auth-link">My Account</a></li>
-        </ul>
-      </nav>
+  <ul>
+    <li>
+      <a href="HOMEPAGE.html" class="nav-img-icon" title="Home">
+        <img src="Images/home-icon.png" alt="Home">
+      </a>
+    </li>
+    <li>
+      <a href="#featured" class="nav-img-icon" title="Featured">
+        <img src="Images/featured-icon.png" alt="Featured Campaigns">
+      </a>
+    </li>
+    <li>
+      <a href="#" id="auth-link" class="nav-img-icon" title="Account">
+        <img src="Images/my-account-icon.png" alt="Login/Register">
+      </a>
+    </li>
+  </ul>
+</nav>
+
     </div>
   </header>
 
@@ -1051,7 +1101,7 @@
   <!-- Story Section -->
   <section class="story-section">
     <div class="story-content">
-      <h2>The P1Solusyon Story</h2>
+      <h2>The ₱1Solusyon Story</h2>
       <div class="story-text">
         <p>Born from a simple observation: many brilliant Filipino ideas never see the light of day due to lack of funding. We saw talented entrepreneurs with innovative Solusyons, community-changing projects, and life-altering inventions that were stuck in the concept phase.</p>
         <br>
@@ -1074,7 +1124,7 @@
         <!-- Team Member 1 -->
         <div class="team-member">
           <div class="member-image">
-            <img src="" alt="Founder & CEO">
+            <img src="Images/kyle.jpg" alt="Founder & CEO">
           </div>
           <h3 class="member-name">Kyle Salatic</h3>
           <p class="member-role">Founder & CEO</p>
@@ -1102,7 +1152,7 @@
         <!-- Team Member 3 -->
         <div class="team-member">
           <div class="member-image">
-            <img src="" alt="Member">
+            <img src="Images/jedidiah.jpg" alt="Member">
           </div>
           <h3 class="member-name">Jedidiah Peniel A. Bainan</h3>
           <p class="member-role">Member</p>
@@ -1150,7 +1200,7 @@
     <div class="contact-content">
       <h2>Get in Touch</h2>
       <div class="contact-info">
-        <p>Email: p1Solusyon@gmail.com</p>
+        <p>Email: ₱1Solusyon@gmail.com</p>
         <p>Phone: 09635926851</p>
         <p>Address: Baguio City, Bakakeng, Philippines</p>
       </div>
@@ -1160,12 +1210,6 @@
 
   <footer>
     <p>&copy; 2025 ₱1Solusyon. All rights reserved.</p>
-    <p>
-      <a href="#">About</a> |
-      <a href="#">Contact</a> |
-      <a href="#">Privacy Policy</a> |
-      <a href="#">Terms of Service</a>
-    </p>
   </footer>
 
   <!-- Login/Register Modal -->
@@ -1309,10 +1353,20 @@
 
   // Account / Sidebar wiring
   function updateNav() {
-    if (!authLink) return;
-    authLink.textContent = localStorage.getItem('userEmail') ? 'My Account' : 'Login / Register';
+  const authLink = document.getElementById('auth-link'); // Matches your HTML ID
+  if (!authLink) return;
+  
+  if (localStorage.getItem('userEmail')) {
+    // Logged in - Account image
+      authLink.innerHTML = '<img src="Images/account-icon.png" alt="My Account" class="nav-account-img">';
+      authLink.title = 'My Account';
+    } else {
+      // Logged out - Login image
+      authLink.innerHTML = '<img src="Images/login-icon.png" alt="Login/Register" class="nav-account-img">';
+      authLink.title = 'Login/Register';
+    }
   }
-  updateNav();
+
 
   if (authLink) authLink.addEventListener('click', (ev) => {
     ev.preventDefault();

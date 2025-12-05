@@ -3,7 +3,7 @@
 <head>
 <meta charset='UTF-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-<title> Car Wash - ₱1Solusyon Campaign</title>
+<title> Car Wash - ₱1Solution Campaign</title>
 <style>
   *{margin:0;
     padding:0;
@@ -310,6 +310,30 @@
     background:#2c5aa0 ;
     color: white;
   }
+
+  .nav-img-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    padding: 12px !important;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .nav-img-icon img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+  }
+
+  .nav-img-icon:hover {
+    background: rgba(74, 144, 226, 0.1);
+    transform: scale(1.1);
+    color: #2c5aa0 !important;
+  }
   
 </style>
 </head>
@@ -319,12 +343,24 @@
   <div class='header-content'>
     <div class='logo'><img src='../Images/logo.jfif' id='logo-click'></div>
     <nav>
-      <ul>
-        <li><a id='home-link'>Home</a></li>
-        <li><a id='browse-link'>Browse Campaigns</a></li>
-        <li><a id='auth-link'>Login / Register</a></li>
-      </ul>
-    </nav>
+        <ul>
+          <li>
+            <a href="../HOMEPAGE.html" class="nav-img-icon" title="Home">
+              <img src="../Images/home-icon.png" alt="Home">
+            </a>
+          </li>
+          <li>
+            <a href="#featured" class="nav-img-icon" title="Featured">
+              <img src="../Images/featured-icon.png" alt="Featured Campaigns">
+            </a>
+          </li>
+          <li>
+            <a href="#" id="auth-link" class="nav-img-icon" title="Account">
+              <img src="../Images/my-account-icon.png" alt="Login/Register">
+            </a>
+          </li>
+        </ul>
+      </nav>
   </div>
 </header>
 
@@ -420,7 +456,7 @@
 </div>
 
 <footer>
-  ₱1Solusyon • All Rights Reserved.
+  ₱1Solution • All Rights Reserved.
 </footer>
 
 <!-- Modal -->
@@ -557,7 +593,17 @@
     });
 
     function updateNav() {
-      if (authLink) authLink.textContent = localStorage.getItem('userEmail') ? 'My Account' : 'Login / Register';
+      if (!authLink) return;
+      
+      if (localStorage.getItem('userEmail')) {
+        // Logged in - show account image
+        authLink.innerHTML = '<img src="../Images/my-account-icon.png" alt="My Account" class="nav-account-img">';
+        authLink.title = 'My Account';
+      } else {
+        // Not logged in - show login image  
+        authLink.innerHTML = '<img src="../Images/login-icon.png" alt="Login/Register" class="nav-login-img">';
+        authLink.title = 'Login/Register';
+      }
     }
     updateNav();
 
